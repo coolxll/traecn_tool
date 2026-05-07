@@ -1,8 +1,8 @@
 const fs = require('fs');
 const c = fs.readFileSync('D:/Trae CN/resources/app/extensions/ai-completion/resource/aiserver/server.js', 'utf8');
 
-// 1. кякВ chat_completion ╤к╣Ц╦╫╫Э╣д╢ЗбК
-console.log('=== chat_completion иообнд ===');
+// 1. Ф░°Г╢╒ chat_completion Г╚╞Г┌╧И≥└Х©▒Г └Д╩ёГ═│
+console.log('=== chat_completion Д╦┼Д╦▀Ф√┤ ===');
 let idx = c.indexOf("chat_completion");
 while (idx !== -1) {
   const start = Math.max(0, idx - 200);
@@ -13,8 +13,8 @@ while (idx !== -1) {
   idx = c.indexOf("chat_completion", idx + 1);
 }
 
-// 2. кякВ model_list ╤к╣Циообнд
-console.log('\n=== model_list иообнд ===');
+// 2. Ф░°Г╢╒ model_list Г╚╞Г┌╧Д╦┼Д╦▀Ф√┤
+console.log('\n=== model_list Д╦┼Д╦▀Ф√┤ ===');
 idx = c.indexOf("model_list");
 while (idx !== -1) {
   const start = Math.max(0, idx - 150);
@@ -25,8 +25,8 @@ while (idx !== -1) {
   idx = c.indexOf("model_list", idx + 1);
 }
 
-// 3. кякВ llm_raw_chat иообнд
-console.log('\n=== llm_raw_chat иообнд ===');
+// 3. Ф░°Г╢╒ llm_raw_chat Д╦┼Д╦▀Ф√┤
+console.log('\n=== llm_raw_chat Д╦┼Д╦▀Ф√┤ ===');
 idx = c.indexOf("llm_raw_chat");
 while (idx !== -1) {
   const start = Math.max(0, idx - 150);
@@ -37,8 +37,8 @@ while (idx !== -1) {
   idx = c.indexOf("llm_raw_chat", idx + 1);
 }
 
-// 4. кякВ X-IDE-Token ╨м X-Auth-Token оЮ╧ь
-console.log('\n=== X-IDE-Token иообнд ===');
+// 4. Ф░°Г╢╒ X-IDE-Token Е▓▄ X-Auth-Token Г⌡╦Е┘Ё
+console.log('\n=== X-IDE-Token Д╦┼Д╦▀Ф√┤ ===');
 idx = c.indexOf("X-IDE-Token");
 while (idx !== -1) {
   const start = Math.max(0, idx - 200);
@@ -49,7 +49,7 @@ while (idx !== -1) {
   idx = c.indexOf("X-IDE-Token", idx + 1);
 }
 
-console.log('\n=== X-Auth-Token иообнд ===');
+console.log('\n=== X-Auth-Token Д╦┼Д╦▀Ф√┤ ===');
 idx = c.indexOf("X-Auth-Token");
 while (idx !== -1) {
   const start = Math.max(0, idx - 200);

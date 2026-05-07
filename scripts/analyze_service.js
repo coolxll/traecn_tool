@@ -1,23 +1,23 @@
 const fs = require('fs');
 const c = fs.readFileSync('D:/Trae CN/resources/app/extensions/ai-completion/resource/aiserver/server.js', 'utf8');
 
-// ËÑË÷ zi['METHODS'] ¶ÔÏóµÄÍêÕû¶¨Òå
+// æœç´¢ zi['METHODS'] å¯¹è±¡çš„å®Œæ•´å®šä¹‰
 console.log('=== Chat Service METHODS (zi) ===');
 let idx = c.indexOf("zi['METHODS']={");
 if (idx === -1) idx = c.indexOf("zi[_0x254e5c(0x299)]");
 if (idx !== -1) {
-  // ÍùÇ°ÕÒ zi ¶¨Òå
+  // å¾€å‰æ‰¾ zi å®šä¹‰
   console.log(c.substring(idx, Math.min(c.length, idx + 600)));
 }
 
-// ËÑË÷ SERVER_NAME
+// æœç´¢ SERVER_NAME
 console.log('\n=== SERVER_NAME ===');
 const serverNames = c.match(/SERVER_NAME['\]]*\s*=\s*['"][^'"]+['"]/g);
 if (serverNames) {
   [...new Set(serverNames)].forEach(x => console.log(x));
 }
 
-// ËÑË÷ sd['METHODS'] £¨ModelList µÄ server£©
+// æœç´¢ sd['METHODS'] ï¼ˆModelList çš„ serverï¼‰
 console.log('\n=== Model Service (sd) ===');
 idx = c.indexOf("sd['METHODS']");
 if (idx === -1) idx = c.indexOf("sd['SERVER_NAME']");
@@ -25,22 +25,22 @@ if (idx !== -1) {
   console.log(c.substring(idx, Math.min(c.length, idx + 800)));
 }
 
-// ËÑË÷ _storeService ¡ª Token »ñÈ¡
+// æœç´¢ _storeService â€” Token è·å–
 console.log('\n=== Token/Store Service ===');
 const storePatterns = c.match(/['"](?:getToken|getJwtToken|getAuth|refreshToken|signIn|login|getSession|getCredential|getIdeToken|ideToken|jwtToken|authToken)['"]/gi);
 if (storePatterns) {
   [...new Set(storePatterns)].sort().forEach(x => console.log(x));
 }
 
-// ËÑË÷ WebSocket Ïà¹Ø
-console.log('\n=== WebSocket Ê¹ÓÃ ===');
+// æœç´¢ WebSocket ç›¸å…³
+console.log('\n=== WebSocket ä½¿ç”¨ ===');
 const wsPatterns = c.match(/['"](?:ws:\/\/|wss:\/\/)[^'"]+['"]/g);
 if (wsPatterns) {
   [...new Set(wsPatterns)].forEach(x => console.log(x));
 }
 
-// ËÑË÷ mchost.guru Ïà¹Ø
-console.log('\n=== mchost.guru ÅäÖÃ ===');
+// æœç´¢ mchost.guru ç›¸å…³
+console.log('\n=== mchost.guru é…ç½® ===');
 let mi = 0;
 while (true) {
   mi = c.indexOf('mchost.guru', mi);

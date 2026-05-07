@@ -1,94 +1,94 @@
 # trae-proxy
 
-> Trae CN ¡ú OpenAI Compatible API ·´Ïò´úÀí¹¤¾ß
+> Trae CN â†’ OpenAI Compatible API åå‘ä»£ç†å·¥å…·
 
-½« [Trae CN](https://www.trae.com.cn/)£¨×Ö½ÚÌø¶¯ AI IDE£©ÖĞµÄ 14+ ¸ö AI Ä£ĞÍ·´´úÎª±ê×¼ OpenAI ¼æÈİ API£¬ÊÊÅäÈÎºÎÖ§³Ö OpenAI API µÄ¿Í»§¶Ë¡£
+å°† [Trae CN](https://www.trae.com.cn/)ï¼ˆå­—èŠ‚è·³åŠ¨ AI IDEï¼‰ä¸­çš„ 14+ ä¸ª AI æ¨¡å‹åä»£ä¸ºæ ‡å‡† OpenAI å…¼å®¹ APIï¼Œé€‚é…ä»»ä½•æ”¯æŒ OpenAI API çš„å®¢æˆ·ç«¯ã€‚
 
-## ÌØĞÔ
+## ç‰¹æ€§
 
-- **OpenAI ¼æÈİ API** ¡ª ±ê×¼ `/v1/chat/completions` ºÍ `/v1/models` ½Ó¿Ú
-- **14+ Ä£ĞÍÖ§³Ö** ¡ª Doubao-Seed¡¢DeepSeek¡¢GLM-5¡¢Kimi-K2¡¢Qwen3¡¢Claude¡¢GPT-4.1 µÈ
-- **SSE Á÷Ê½Êä³ö** ¡ª ÍêÕûµÄ Server-Sent Events Á÷Ê½ÏìÓ¦Ö§³Ö
-- **¶àÕËºÅ¹ÜÀí** ¡ª ÂÖÑ¯¸ºÔØ¾ùºâ£¬×Ô¶¯ Token Ë¢ĞÂ
-- **ÅÅ¶ÓÍ¸´«** ¡ª ÊµÊ±ÏÔÊ¾Ä£ĞÍÅÅ¶ÓÎ»ÖÃºÍµÈ´ıÈËÊı
-- **ÁãÅäÖÃÆô¶¯** ¡ª ×Ô¶¯¼ì²â±¾»ú Trae CN Token£¬ÎŞĞèÊÖ¶¯ÅäÖÃ
-- **¿çÆ½Ì¨** ¡ª Ö§³Ö Windows / macOS / Linux
+- **OpenAI å…¼å®¹ API** â€” æ ‡å‡† `/v1/chat/completions` å’Œ `/v1/models` æ¥å£
+- **14+ æ¨¡å‹æ”¯æŒ** â€” Doubao-Seedã€DeepSeekã€GLM-5ã€Kimi-K2ã€Qwen3ã€Claudeã€GPT-4.1 ç­‰
+- **SSE æµå¼è¾“å‡º** â€” å®Œæ•´çš„ Server-Sent Events æµå¼å“åº”æ”¯æŒ
+- **å¤šè´¦å·ç®¡ç†** â€” è½®è¯¢è´Ÿè½½å‡è¡¡ï¼Œè‡ªåŠ¨ Token åˆ·æ–°
+- **æ’é˜Ÿé€ä¼ ** â€” å®æ—¶æ˜¾ç¤ºæ¨¡å‹æ’é˜Ÿä½ç½®å’Œç­‰å¾…äººæ•°
+- **é›¶é…ç½®å¯åŠ¨** â€” è‡ªåŠ¨æ£€æµ‹æœ¬æœº Trae CN Tokenï¼Œæ— éœ€æ‰‹åŠ¨é…ç½®
+- **è·¨å¹³å°** â€” æ”¯æŒ Windows / macOS / Linux
 
-## Ö§³ÖµÄÄ£ĞÍ
+## æ”¯æŒçš„æ¨¡å‹
 
-| Ä£ĞÍ | Ìá¹©ÉÌ | Config Name |
+| æ¨¡å‹ | æä¾›å•† | Config Name |
 |------|--------|-------------|
-| Doubao-Seed-1.6 | ×Ö½ÚÌø¶¯ | `doubao-seed-1.6` |
-| Doubao-1.5-Pro | ×Ö½ÚÌø¶¯ | `doubao-1.5-pro` |
+| Doubao-Seed-1.6 | å­—èŠ‚è·³åŠ¨ | `doubao-seed-1.6` |
+| Doubao-1.5-Pro | å­—èŠ‚è·³åŠ¨ | `doubao-1.5-pro` |
 | DeepSeek-V3 | DeepSeek | `deepseek-v3` |
 | DeepSeek-R1 | DeepSeek | `deepseek-r1` |
-| GLM-5 | ÖÇÆ× | `glm-5` |
-| GLM-4-Plus | ÖÇÆ× | `glm-4-plus` |
+| GLM-5 | æ™ºè°± | `glm-5` |
+| GLM-4-Plus | æ™ºè°± | `glm-4-plus` |
 | Kimi-K2 | Moonshot | `kimi-k2` |
 | MiniMax-M1 | MiniMax | `minimax-m1` |
-| Qwen3-Coder | °¢Àï°Í°Í | `qwen3-coder` |
-| Qwen3 | °¢Àï°Í°Í | `qwen3` |
+| Qwen3-Coder | é˜¿é‡Œå·´å·´ | `qwen3-coder` |
+| Qwen3 | é˜¿é‡Œå·´å·´ | `qwen3` |
 | Gemini-2.5-Pro | Google | `gemini-2.5-pro` |
 | Claude-Sonnet-4 | Anthropic | `claude-sonnet-4` |
 | GPT-4.1 | OpenAI | `gpt-4.1` |
 
-> Ä£ĞÍÁĞ±í»áËæ Trae CN °æ±¾¸üĞÂ¶ø±ä»¯£¬¿ÉÍ¨¹ı `/v1/models` ½Ó¿ÚÊµÊ±»ñÈ¡¡£
+> æ¨¡å‹åˆ—è¡¨ä¼šéš Trae CN ç‰ˆæœ¬æ›´æ–°è€Œå˜åŒ–ï¼Œå¯é€šè¿‡ `/v1/models` æ¥å£å®æ—¶è·å–ã€‚
 
-## ¿ìËÙ¿ªÊ¼
+## å¿«é€Ÿå¼€å§‹
 
-### Ç°ÖÃÌõ¼ş
+### å‰ç½®æ¡ä»¶
 
-- [Go 1.22+](https://go.dev/dl/) ÒÑ°²×°
-- [Trae CN](https://www.trae.com.cn/) ÒÑ°²×°²¢µÇÂ¼
+- [Go 1.22+](https://go.dev/dl/) å·²å®‰è£…
+- [Trae CN](https://www.trae.com.cn/) å·²å®‰è£…å¹¶ç™»å½•
 
-### °²×°
+### å®‰è£…
 
 ```bash
-# ¿ËÂ¡²Ö¿â
+# å…‹éš†ä»“åº“
 git clone https://github.com/zamatewi-cell/traecn_tool.git
 cd traecn_tool
 
-# ±àÒë
+# ç¼–è¯‘
 go build -o trae-proxy ./cmd/trae-proxy
 
-# ÔËĞĞ£¨×Ô¶¯¼ì²â Token£©
+# è¿è¡Œï¼ˆè‡ªåŠ¨æ£€æµ‹ Tokenï¼‰
 ./trae-proxy
 ```
 
-### Ê¹ÓÃ
+### ä½¿ç”¨
 
 ```bash
-# Æô¶¯´úÀí
+# å¯åŠ¨ä»£ç†
 ./trae-proxy --listen :9090
 
-# ²âÊÔ API
+# æµ‹è¯• API
 curl http://localhost:9090/v1/models
 
-# ·¢ËÍÁÄÌìÇëÇó
+# å‘é€èŠå¤©è¯·æ±‚
 curl http://localhost:9090/v1/chat/completions \
   -H "Content-Type: application/json" \
   -d '{
     "model": "deepseek-v3",
-    "messages": [{"role": "user", "content": "ÄãºÃ"}],
+    "messages": [{"role": "user", "content": "ä½ å¥½"}],
     "stream": true
   }'
 ```
 
-### ÃüÁîĞĞ²ÎÊı
+### å‘½ä»¤è¡Œå‚æ•°
 
 ```
 Usage: trae-proxy [options]
 
 Options:
-  -config string    ÅäÖÃÎÄ¼şÂ·¾¶ (Ä¬ÈÏ "config.json")
-  -listen string    ¼àÌıµØÖ· (Ä¬ÈÏ ":9090")
-  -log-level string ÈÕÖ¾¼¶±ğ debug/info/warn/error (Ä¬ÈÏ "info")
-  -version          ÏÔÊ¾°æ±¾ºÅ
+  -config string    é…ç½®æ–‡ä»¶è·¯å¾„ (é»˜è®¤ "config.json")
+  -listen string    ç›‘å¬åœ°å€ (é»˜è®¤ ":9090")
+  -log-level string æ—¥å¿—çº§åˆ« debug/info/warn/error (é»˜è®¤ "info")
+  -version          æ˜¾ç¤ºç‰ˆæœ¬å·
 ```
 
-## ÅäÖÃ
+## é…ç½®
 
-¸´ÖÆ `config.example.json` Îª `config.json`£º
+å¤åˆ¶ `config.example.json` ä¸º `config.json`ï¼š
 
 ```json
 {
@@ -104,18 +104,18 @@ Options:
 }
 ```
 
-| ×Ö¶Î | ËµÃ÷ |
+| å­—æ®µ | è¯´æ˜ |
 |------|------|
-| `listen_addr` | ¼àÌıµØÖ·£¬Èç `:9090` |
-| `log_level` | ÈÕÖ¾¼¶±ğ£ºdebug / info / warn / error |
-| `accounts[].name` | ÕËºÅ±ğÃû |
-| `accounts[].storage_path` | Trae CN storage.json Â·¾¶£¨Áô¿Õ×Ô¶¯¼ì²â£© |
-| `accounts[].token` | Ö±½ÓÌá¹© JWT Token£¨¿ÉÑ¡£¬ÓÅÏÈ¼¶¸ßÓÚ storage_path£© |
-| `accounts[].weight` | ¸ºÔØ¾ùºâÈ¨ÖØ |
+| `listen_addr` | ç›‘å¬åœ°å€ï¼Œå¦‚ `:9090` |
+| `log_level` | æ—¥å¿—çº§åˆ«ï¼šdebug / info / warn / error |
+| `accounts[].name` | è´¦å·åˆ«å |
+| `accounts[].storage_path` | Trae CN storage.json è·¯å¾„ï¼ˆç•™ç©ºè‡ªåŠ¨æ£€æµ‹ï¼‰ |
+| `accounts[].token` | ç›´æ¥æä¾› JWT Tokenï¼ˆå¯é€‰ï¼Œä¼˜å…ˆçº§é«˜äº storage_pathï¼‰ |
+| `accounts[].weight` | è´Ÿè½½å‡è¡¡æƒé‡ |
 
-### ×Ô¶¯¼ì²â
+### è‡ªåŠ¨æ£€æµ‹
 
-Èç¹û²»Ìá¹© `config.json`£¬³ÌĞò»á×Ô¶¯¼ì²â£º
+å¦‚æœä¸æä¾› `config.json`ï¼Œç¨‹åºä¼šè‡ªåŠ¨æ£€æµ‹ï¼š
 
 ```
 Windows: %APPDATA%\Trae CN\User\globalStorage\storage.json
@@ -123,22 +123,22 @@ macOS:   ~/Library/Application Support/Trae CN/User/globalStorage/storage.json
 Linux:   ~/.config/Trae CN/User/globalStorage/storage.json
 ```
 
-## API ½Ó¿Ú
+## API æ¥å£
 
 ### GET /v1/models
 
-·µ»Ø¿ÉÓÃÄ£ĞÍÁĞ±í£¨OpenAI ¸ñÊ½£©¡£
+è¿”å›å¯ç”¨æ¨¡å‹åˆ—è¡¨ï¼ˆOpenAI æ ¼å¼ï¼‰ã€‚
 
 ### POST /v1/chat/completions
 
-OpenAI ¼æÈİµÄÁÄÌì½Ó¿Ú£¬Ö§³ÖÁ÷Ê½ºÍ·ÇÁ÷Ê½¡£
+OpenAI å…¼å®¹çš„èŠå¤©æ¥å£ï¼Œæ”¯æŒæµå¼å’Œéæµå¼ã€‚
 
 ```json
 {
   "model": "deepseek-v3",
   "messages": [
-    {"role": "system", "content": "ÄãÊÇÒ»¸öÓĞÓÃµÄÖúÊÖ"},
-    {"role": "user", "content": "½âÊÍÁ¿×Ó¼ÆËã"}
+    {"role": "system", "content": "ä½ æ˜¯ä¸€ä¸ªæœ‰ç”¨çš„åŠ©æ‰‹"},
+    {"role": "user", "content": "è§£é‡Šé‡å­è®¡ç®—"}
   ],
   "stream": true,
   "temperature": 0.7,
@@ -148,114 +148,114 @@ OpenAI ¼æÈİµÄÁÄÌì½Ó¿Ú£¬Ö§³ÖÁ÷Ê½ºÍ·ÇÁ÷Ê½¡£
 
 ### GET /v1/queue/status
 
-²éÑ¯Ä£ĞÍÅÅ¶Ó×´Ì¬¡£
+æŸ¥è¯¢æ¨¡å‹æ’é˜ŸçŠ¶æ€ã€‚
 
 ```
-GET /v1/queue/status               # ËùÓĞÄ£ĞÍµÄÅÅ¶Ó×´Ì¬
-GET /v1/queue/status?model=glm-5   # Ö¸¶¨Ä£ĞÍµÄÅÅ¶Ó×´Ì¬
+GET /v1/queue/status               # æ‰€æœ‰æ¨¡å‹çš„æ’é˜ŸçŠ¶æ€
+GET /v1/queue/status?model=glm-5   # æŒ‡å®šæ¨¡å‹çš„æ’é˜ŸçŠ¶æ€
 ```
 
 ### GET /health
 
-½¡¿µ¼ì²é¡£
+å¥åº·æ£€æŸ¥ã€‚
 
-## ¼¼Êõ¼Ü¹¹
+## æŠ€æœ¯æ¶æ„
 
 ```
-©°©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©´     ©°©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©´     ©°©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©´
-©¦  ÈÎÒâ OpenAI ©¦     ©¦  trae-proxy  ©¦     ©¦  Trae CN Backend     ©¦
-©¦  ¼æÈİ¿Í»§¶Ë   ©¦©¤©¤©¤©¤?©¦  :9090       ©¦©¤©¤©¤©¤?©¦  trae-api-cn.mchost  ©¦
-©¦  (curl/SDK)  ©¦?©¤©¤©¤©¤©¦  OpenAI API  ©¦?©¤©¤©¤©¤©¦  .guru               ©¦
-©¸©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¼     ©¸©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¼     ©¸©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¼
-                     ©¦ Token ÌáÈ¡    ©¦
-                     ©¦ ¸ñÊ½×ª»»      ©¦
-                     ©¦ SSE Á÷Ê½      ©¦
-                     ©¦ ÅÅ¶Ó¼à¿Ø      ©¦
-                     ©¦ ¶àÕËºÅÂÖÑ¯    ©¦
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”     â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”     â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚  ä»»æ„ OpenAI â”‚     â”‚  trae-proxy  â”‚     â”‚  Trae CN Backend     â”‚
+â”‚  å…¼å®¹å®¢æˆ·ç«¯   â”‚â”€â”€â”€â”€?â”‚  :9090       â”‚â”€â”€â”€â”€?â”‚  trae-api-cn.mchost  â”‚
+â”‚  (curl/SDK)  â”‚?â”€â”€â”€â”€â”‚  OpenAI API  â”‚?â”€â”€â”€â”€â”‚  .guru               â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜     â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜     â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+                     â”‚ Token æå–    â”‚
+                     â”‚ æ ¼å¼è½¬æ¢      â”‚
+                     â”‚ SSE æµå¼      â”‚
+                     â”‚ æ’é˜Ÿç›‘æ§      â”‚
+                     â”‚ å¤šè´¦å·è½®è¯¢    â”‚
 ```
 
-### ¹¤×÷Á÷³Ì
+### å·¥ä½œæµç¨‹
 
-1. **Token ÌáÈ¡** ¡ª ×Ô¶¯´Ó Trae CN µÄ `storage.json` ¶ÁÈ¡ JWT Token
-2. **ÇëÇó×ª»»** ¡ª ½« OpenAI ¸ñÊ½ÇëÇó×ªÎª Trae CN API ¸ñÊ½
-3. **ÇëÇó×ª·¢** ¡ª ´øÉÏÍêÕûµÄÉè±¸ĞÅÏ¢ºÍÈÏÖ¤Í··¢ËÍµ½ Trae ºó¶Ë
-4. **ÏìÓ¦×ª»»** ¡ª ½« Trae CN SSE Á÷×ªÎª OpenAI SSE ¸ñÊ½
-5. **ÅÅ¶Ó¼à¿Ø** ¡ª ÊµÊ±¼ì²â²¢±©Â¶ÅÅ¶Ó×´Ì¬
+1. **Token æå–** â€” è‡ªåŠ¨ä» Trae CN çš„ `storage.json` è¯»å– JWT Token
+2. **è¯·æ±‚è½¬æ¢** â€” å°† OpenAI æ ¼å¼è¯·æ±‚è½¬ä¸º Trae CN API æ ¼å¼
+3. **è¯·æ±‚è½¬å‘** â€” å¸¦ä¸Šå®Œæ•´çš„è®¾å¤‡ä¿¡æ¯å’Œè®¤è¯å¤´å‘é€åˆ° Trae åç«¯
+4. **å“åº”è½¬æ¢** â€” å°† Trae CN SSE æµè½¬ä¸º OpenAI SSE æ ¼å¼
+5. **æ’é˜Ÿç›‘æ§** â€” å®æ—¶æ£€æµ‹å¹¶æš´éœ²æ’é˜ŸçŠ¶æ€
 
-## ÏîÄ¿½á¹¹
+## é¡¹ç›®ç»“æ„
 
 ```
 traecn_tool/
-©À©¤©¤ cmd/
-©¦   ©¸©¤©¤ trae-proxy/
-©¦       ©¸©¤©¤ main.go              # ³ÌĞòÈë¿Ú
-©À©¤©¤ internal/
-©¦   ©À©¤©¤ auth/
-©¦   ©¦   ©¸©¤©¤ token.go             # Token ÌáÈ¡Óë¹ÜÀí
-©¦   ©À©¤©¤ config/
-©¦   ©¦   ©À©¤©¤ config.go            # ÅäÖÃ¼ÓÔØ
-©¦   ©¦   ©¸©¤©¤ constants.go         # API ³£Á¿Óë¶Ëµã
-©¦   ©À©¤©¤ device/
-©¦   ©¦   ©¸©¤©¤ device.go            # Éè±¸ĞÅÏ¢Ä£Äâ
-©¦   ©À©¤©¤ models/
-©¦   ©¦   ©¸©¤©¤ models.go            # Ä£ĞÍ¶¨Òå
-©¦   ©À©¤©¤ openai/
-©¦   ©¦   ©¸©¤©¤ server.go            # OpenAI ¼æÈİ API ·şÎñ
-©¦   ©À©¤©¤ proxy/
-©¦   ©¦   ©¸©¤©¤ proxy.go             # ºËĞÄ´úÀíÂß¼­
-©¦   ©À©¤©¤ queue/
-©¦   ©¦   ©¸©¤©¤ queue.go             # ÅÅ¶Ó¼à¿Ø
-©¦   ©¸©¤©¤ sse/
-©¦       ©¸©¤©¤ sse.go               # SSE Á÷´¦Àí
-©À©¤©¤ docs/
-©¦   ©¸©¤©¤ PRD.md                   # ²úÆ·ĞèÇóÎÄµµÓëĞ­Òé·ÖÎö
-©À©¤©¤ scripts/
-©¦   ©À©¤©¤ analyze_*.js             # Ğ­Òé·ÖÎö½Å±¾
-©¦   ©¸©¤©¤ find_token.js            # Token ²éÕÒ¹¤¾ß
-©À©¤©¤ .copilot/
-©¦   ©¸©¤©¤ skills/                  # AI ¸¨Öú¿ª·¢¼¼ÄÜ
-©À©¤©¤ config.example.json          # ÅäÖÃÊ¾Àı
-©À©¤©¤ .gitignore
-©À©¤©¤ go.mod
-©¸©¤©¤ README.md
+â”œâ”€â”€ cmd/
+â”‚   â””â”€â”€ trae-proxy/
+â”‚       â””â”€â”€ main.go              # ç¨‹åºå…¥å£
+â”œâ”€â”€ internal/
+â”‚   â”œâ”€â”€ auth/
+â”‚   â”‚   â””â”€â”€ token.go             # Token æå–ä¸ç®¡ç†
+â”‚   â”œâ”€â”€ config/
+â”‚   â”‚   â”œâ”€â”€ config.go            # é…ç½®åŠ è½½
+â”‚   â”‚   â””â”€â”€ constants.go         # API å¸¸é‡ä¸ç«¯ç‚¹
+â”‚   â”œâ”€â”€ device/
+â”‚   â”‚   â””â”€â”€ device.go            # è®¾å¤‡ä¿¡æ¯æ¨¡æ‹Ÿ
+â”‚   â”œâ”€â”€ models/
+â”‚   â”‚   â””â”€â”€ models.go            # æ¨¡å‹å®šä¹‰
+â”‚   â”œâ”€â”€ openai/
+â”‚   â”‚   â””â”€â”€ server.go            # OpenAI å…¼å®¹ API æœåŠ¡
+â”‚   â”œâ”€â”€ proxy/
+â”‚   â”‚   â””â”€â”€ proxy.go             # æ ¸å¿ƒä»£ç†é€»è¾‘
+â”‚   â”œâ”€â”€ queue/
+â”‚   â”‚   â””â”€â”€ queue.go             # æ’é˜Ÿç›‘æ§
+â”‚   â””â”€â”€ sse/
+â”‚       â””â”€â”€ sse.go               # SSE æµå¤„ç†
+â”œâ”€â”€ docs/
+â”‚   â””â”€â”€ PRD.md                   # äº§å“éœ€æ±‚æ–‡æ¡£ä¸åè®®åˆ†æ
+â”œâ”€â”€ scripts/
+â”‚   â”œâ”€â”€ analyze_*.js             # åè®®åˆ†æè„šæœ¬
+â”‚   â””â”€â”€ find_token.js            # Token æŸ¥æ‰¾å·¥å…·
+â”œâ”€â”€ .copilot/
+â”‚   â””â”€â”€ skills/                  # AI è¾…åŠ©å¼€å‘æŠ€èƒ½
+â”œâ”€â”€ config.example.json          # é…ç½®ç¤ºä¾‹
+â”œâ”€â”€ .gitignore
+â”œâ”€â”€ go.mod
+â””â”€â”€ README.md
 ```
 
-## Ğ­ÒéÄæÏò·¢ÏÖ
+## åè®®é€†å‘å‘ç°
 
-ÔÚ¿ª·¢¹ı³ÌÖĞ£¬ÎÒÃÇ¶Ô Trae CN v1.107.1 ½øĞĞÁËÉîÈëµÄĞ­Òé·ÖÎö£º
+åœ¨å¼€å‘è¿‡ç¨‹ä¸­ï¼Œæˆ‘ä»¬å¯¹ Trae CN v1.107.1 è¿›è¡Œäº†æ·±å…¥çš„åè®®åˆ†æï¼š
 
-### ¹Ø¼ü·¢ÏÖ
+### å…³é”®å‘ç°
 
-- **ÎŞ ASAR ´ò°ü** ¡ª Trae CN µÄ Electron Ó¦ÓÃÎ´Ê¹ÓÃ asar£¬Ô´ÂëÖ±½Ó¿É¶Á
-- **15.8MB server.js** ¡ª AI ºËĞÄÂß¼­¼¯ÖĞÔÚµ¥¸ö»ìÏıµÄ JS ÎÄ¼şÖĞ
-- **ai-agent.dll** ¡ª ¶ÀÁ¢µÄ Rust ¶ş½øÖÆ¸ºÔğÊµ¼Ê HTTP Í¨ĞÅ
-- **TTNet/sscronet** ¡ª Ê¹ÓÃ×Ö½ÚÌø¶¯¶¨ÖÆµÄ Cronet ÍøÂç¿â
-- **Token Ã÷ÎÄ´æ´¢** ¡ª JWT Token ÒÔÃ÷ÎÄ JSON ´æ´¢ÔÚ `storage.json`
-- **ÍêÕû API Ó³Éä** ¡ª ·¢ÏÖ 13+ ¸öºó¶Ë API ¶Ëµã
+- **æ—  ASAR æ‰“åŒ…** â€” Trae CN çš„ Electron åº”ç”¨æœªä½¿ç”¨ asarï¼Œæºç ç›´æ¥å¯è¯»
+- **15.8MB server.js** â€” AI æ ¸å¿ƒé€»è¾‘é›†ä¸­åœ¨å•ä¸ªæ··æ·†çš„ JS æ–‡ä»¶ä¸­
+- **ai-agent.dll** â€” ç‹¬ç«‹çš„ Rust äºŒè¿›åˆ¶è´Ÿè´£å®é™… HTTP é€šä¿¡
+- **TTNet/sscronet** â€” ä½¿ç”¨å­—èŠ‚è·³åŠ¨å®šåˆ¶çš„ Cronet ç½‘ç»œåº“
+- **Token æ˜æ–‡å­˜å‚¨** â€” JWT Token ä»¥æ˜æ–‡ JSON å­˜å‚¨åœ¨ `storage.json`
+- **å®Œæ•´ API æ˜ å°„** â€” å‘ç° 13+ ä¸ªåç«¯ API ç«¯ç‚¹
 
-### API ¼Ü¹¹
+### API æ¶æ„
 
 ```
-extension.js (Node.js À©Õ¹)
+extension.js (Node.js æ‰©å±•)
     ? JSON-RPC over AHA IPC
-ai-agent.dll (Rust, ¶Ë¿Ú 40005)
+ai-agent.dll (Rust, ç«¯å£ 40005)
     ? sscronet/TTNet HTTP
-trae-api-cn.mchost.guru (ºó¶Ë API)
+trae-api-cn.mchost.guru (åç«¯ API)
 ```
 
-ÍêÕûĞ­Òé·ÖÎöÏê¼û [docs/PRD.md](docs/PRD.md)¡£
+å®Œæ•´åè®®åˆ†æè¯¦è§ [docs/PRD.md](docs/PRD.md)ã€‚
 
-## Áé¸ĞÀ´Ô´
+## çµæ„Ÿæ¥æº
 
-±¾ÏîÄ¿ÊÜµ½ÒÔÏÂÍ¬Àà·´´úÏîÄ¿µÄÆô·¢£º
+æœ¬é¡¹ç›®å—åˆ°ä»¥ä¸‹åŒç±»åä»£é¡¹ç›®çš„å¯å‘ï¼š
 
-- [cursor-api](https://github.com/lvhkhanh/cursor-api) ¡ª Cursor IDE ·´´ú
-- [kiro-api](https://github.com/nicepkg/kiro-api) ¡ª Kiro IDE ·´´ú
-- [antigravity-proxy](https://github.com/nicepkg/antigravity-proxy) ¡ª Antigravity ·´´ú
+- [cursor-api](https://github.com/lvhkhanh/cursor-api) â€” Cursor IDE åä»£
+- [kiro-api](https://github.com/nicepkg/kiro-api) â€” Kiro IDE åä»£
+- [antigravity-proxy](https://github.com/nicepkg/antigravity-proxy) â€” Antigravity åä»£
 
-## ÃâÔğÉùÃ÷
+## å…è´£å£°æ˜
 
-±¾ÏîÄ¿½ö¹©Ñ§Ï°ÑĞ¾¿Ê¹ÓÃ¡£Ê¹ÓÃ±¾¹¤¾ßÇë×ñÊØ Trae CN µÄ·şÎñÌõ¿î¡£ÇëÎğÓÃÓÚÉÌÒµÓÃÍ¾»ò´ó¹æÄ£ÀÄÓÃ¡£×÷Õß²»¶ÔÈÎºÎÒòÊ¹ÓÃ±¾¹¤¾ßµ¼ÖÂµÄºó¹û¸ºÔğ¡£
+æœ¬é¡¹ç›®ä»…ä¾›å­¦ä¹ ç ”ç©¶ä½¿ç”¨ã€‚ä½¿ç”¨æœ¬å·¥å…·è¯·éµå®ˆ Trae CN çš„æœåŠ¡æ¡æ¬¾ã€‚è¯·å‹¿ç”¨äºå•†ä¸šç”¨é€”æˆ–å¤§è§„æ¨¡æ»¥ç”¨ã€‚ä½œè€…ä¸å¯¹ä»»ä½•å› ä½¿ç”¨æœ¬å·¥å…·å¯¼è‡´çš„åæœè´Ÿè´£ã€‚
 
 ## License
 

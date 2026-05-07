@@ -1,7 +1,7 @@
 const fs = require('fs');
 const c = fs.readFileSync('D:/Trae CN/resources/app/extensions/ai-completion/resource/aiserver/server.js', 'utf8');
 
-// 1. ËÑË÷ base URL - ÔÚ product.json ÖÐ¿´µ½µÄÓòÃûÔÚ´úÂëÖÐµÄÊ¹ÓÃ
+// 1. æœç´¢ base URL - åœ¨ product.json ä¸­çœ‹åˆ°çš„åŸŸååœ¨ä»£ç ä¸­çš„ä½¿ç”¨
 console.log('=== copilot-cn.bytedance.net usage ===');
 const domains = ['copilot-cn.bytedance.net', 'copilot-cn\\.bytedance', 'trae-api-cn', 'api.trae.com.cn', 'bytegate.zijieapi'];
 domains.forEach(d => {
@@ -10,23 +10,23 @@ domains.forEach(d => {
   if (m) console.log(`${d}: ${m.length} occurrences`);
 });
 
-// 2. ÕâÐ©ÓòÃû¿ÉÄÜÔÚ product.json ÖÐÅäÖÃ£¬ÔÚ´úÂëÖÐÒÔ±äÁ¿ÒýÓÃ
-// ËÑË÷ baseUrl / hostUrl / serviceUrl Ïà¹Ø
-console.log('\n=== URLÅäÖÃ±äÁ¿ ===');
+// 2. è¿™äº›åŸŸåå¯èƒ½åœ¨ product.json ä¸­é…ç½®ï¼Œåœ¨ä»£ç ä¸­ä»¥å˜é‡å¼•ç”¨
+// æœç´¢ baseUrl / hostUrl / serviceUrl ç›¸å…³
+console.log('\n=== URLé…ç½®å˜é‡ ===');
 const urlVars = c.match(/['"](?:baseUrl|base_url|hostUrl|host_url|serviceUrl|service_url|serverUrl|server_url|apiUrl|api_url|apiHost|apiEndpoint|traeApiUrl|copilotUrl)['"]/gi);
 if (urlVars) {
   [...new Set(urlVars)].forEach(x => console.log(x));
 }
 
-// 3. ËÑË÷ chat_completion ¸½½ü¸ü´ó·¶Î§µÄÉÏÏÂÎÄ£¨°üº¬ÇëÇóÌå¹¹Ôì£©
-console.log('\n=== chat_completion ÇëÇó¹¹Ôì ===');
+// 3. æœç´¢ chat_completion é™„è¿‘æ›´å¤§èŒƒå›´çš„ä¸Šä¸‹æ–‡ï¼ˆåŒ…å«è¯·æ±‚ä½“æž„é€ ï¼‰
+console.log('\n=== chat_completion è¯·æ±‚æž„é€  ===');
 let idx = c.indexOf("DevSendMessagesEndpoint");
 if (idx !== -1) {
-  // ËÑË÷Õâ¸ö±äÁ¿±»Ê¹ÓÃµÄµØ·½
+  // æœç´¢è¿™ä¸ªå˜é‡è¢«ä½¿ç”¨çš„åœ°æ–¹
   const varName = c.substring(idx, idx + 50).match(/\w+/)[0];
   console.log('Variable:', varName);
   
-  // ËÑË÷ chat_completion Â·¾¶±»ÒýÓÃµÄµØ·½
+  // æœç´¢ chat_completion è·¯å¾„è¢«å¼•ç”¨çš„åœ°æ–¹
   const uses = [];
   let si = 0;
   while (true) {
@@ -42,8 +42,8 @@ if (idx !== -1) {
   });
 }
 
-// 4. ËÑË÷ÇëÇóÌå¹Ø¼ü×Ö¶Î
-console.log('\n=== ÇëÇóÌå×Ö¶Î ===');
+// 4. æœç´¢è¯·æ±‚ä½“å…³é”®å­—æ®µ
+console.log('\n=== è¯·æ±‚ä½“å­—æ®µ ===');
 const bodyPatterns = c.match(/['"](?:model_name|model_id|prompt_id|conversation_id|session_id|stream|extra_context|extra_info|intent|code_context|project_name|file_path|language|messages|system_prompt|user_content|is_stream)['"]/gi);
 if (bodyPatterns) {
   [...new Set(bodyPatterns)].sort().forEach(x => console.log(x));

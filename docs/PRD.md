@@ -1,79 +1,79 @@
-# Trae CN ·´Ïò´úÀí¹¤¾ß£¨trae-proxy£©¡ª PRD & ÈÎÎñ×·×Ù
+# Trae CN åå‘ä»£ç†å·¥å…·ï¼ˆtrae-proxyï¼‰â€” PRD & ä»»åŠ¡è¿½è¸ª
 
-> **ÏîÄ¿×´Ì¬**: Phase 0 - Ğ­ÒéÄæÏò¹¤³Ì  
-> **´´½¨ÈÕÆÚ**: 2026-03-12  
-> **¼¼ÊõÕ»**: Go 1.22+  
-> **Ä¿±ê**: ½« Trae CN µÄ AI Ä£ĞÍÒÔ OpenAI ¼æÈİ API ĞÎÊ½¶ÔÍâ±©Â¶
-
----
-
-## 1. ±³¾°Óë¿ÉĞĞĞÔ
-
-ÊĞÃæÉÏÒÑÓĞ´óÁ¿³É¹¦µÄ IDE/AI ¹¤¾ß·´´úÏîÄ¿£º
-- **Cursor** ¡ú cursor-api / cursor2api£¨Electron Ó¦ÓÃ£¬ÒÑ³É¹¦ÄæÏò£©
-- **Augment** ¡ú augment-api£¨ÀàËÆ¼Ü¹¹£©
-- **Kiro** ¡ú kiro-proxy£¨AWS ³öÆ·£¬ÈÔ±»ÄæÏò£©
-- **Antigravity** ¡ú Í¬Àí
-
-Trae CN ×÷Îª×Ö½ÚÌø¶¯³öÆ·µÄ Electron IDE£¬Æä¼¼Êõ¼Ü¹¹ÓëÉÏÊö²úÆ·¸ß¶ÈÀàËÆ£º
-- Electron ×ÀÃæ¿Í»§¶Ë
-- HTTPS + SSE Á÷Ê½Í¨ĞÅ
-- Token-based ÈÏÖ¤
-
-**½áÂÛ£ºÍêÈ«¿ÉĞĞ¡£** ×Ö½ÚµÄ·À»¤Ë®Æ½²»»á¸ßÓÚÕâĞ©¹«Ë¾µÄ×ÛºÏË®Æ½£¬ÇÒ Electron Ó¦ÓÃÌìÈ»¿ÉÄæÏò¡£
+> **é¡¹ç›®çŠ¶æ€**: Phase 0 - åè®®é€†å‘å·¥ç¨‹  
+> **åˆ›å»ºæ—¥æœŸ**: 2026-03-12  
+> **æŠ€æœ¯æ ˆ**: Go 1.22+  
+> **ç›®æ ‡**: å°† Trae CN çš„ AI æ¨¡å‹ä»¥ OpenAI å…¼å®¹ API å½¢å¼å¯¹å¤–æš´éœ²
 
 ---
 
-## 2. Ö§³ÖÄ£ĞÍ
+## 1. èƒŒæ™¯ä¸å¯è¡Œæ€§
 
-| Ä£ĞÍ | Àà±ğ | ×´Ì¬ |
+å¸‚é¢ä¸Šå·²æœ‰å¤§é‡æˆåŠŸçš„ IDE/AI å·¥å…·åä»£é¡¹ç›®ï¼š
+- **Cursor** â†’ cursor-api / cursor2apiï¼ˆElectron åº”ç”¨ï¼Œå·²æˆåŠŸé€†å‘ï¼‰
+- **Augment** â†’ augment-apiï¼ˆç±»ä¼¼æ¶æ„ï¼‰
+- **Kiro** â†’ kiro-proxyï¼ˆAWS å‡ºå“ï¼Œä»è¢«é€†å‘ï¼‰
+- **Antigravity** â†’ åŒç†
+
+Trae CN ä½œä¸ºå­—èŠ‚è·³åŠ¨å‡ºå“çš„ Electron IDEï¼Œå…¶æŠ€æœ¯æ¶æ„ä¸ä¸Šè¿°äº§å“é«˜åº¦ç±»ä¼¼ï¼š
+- Electron æ¡Œé¢å®¢æˆ·ç«¯
+- HTTPS + SSE æµå¼é€šä¿¡
+- Token-based è®¤è¯
+
+**ç»“è®ºï¼šå®Œå…¨å¯è¡Œã€‚** å­—èŠ‚çš„é˜²æŠ¤æ°´å¹³ä¸ä¼šé«˜äºè¿™äº›å…¬å¸çš„ç»¼åˆæ°´å¹³ï¼Œä¸” Electron åº”ç”¨å¤©ç„¶å¯é€†å‘ã€‚
+
+---
+
+## 2. æ”¯æŒæ¨¡å‹
+
+| æ¨¡å‹ | ç±»åˆ« | çŠ¶æ€ |
 |------|------|------|
-| Doubao-Seed-2.0-Code | ´úÂë | Beta |
-| Doubao-Seed-1.8 | Í¨ÓÃ | ÎÈ¶¨ |
-| Doubao-Seed-Code | ´úÂë | ÎÈ¶¨ |
-| MiniMax-M2.5 | Í¨ÓÃ | ÎÈ¶¨ |
-| MiniMax-M2.1 | Í¨ÓÃ | ÎÈ¶¨ |
-| MiniMax-M2 | Í¨ÓÃ | ÎÈ¶¨ |
-| GLM-5 | Í¨ÓÃ | Beta |
-| GLM-4.7 | Í¨ÓÃ | ÎÈ¶¨ |
-| GLM-4.6 | Í¨ÓÃ | ÎÈ¶¨ |
-| DeepSeek-V3.1-Terminus | Í¨ÓÃ | ÎÈ¶¨ |
-| Kimi-K2.5 | Í¨ÓÃ | Beta |
-| Kimi-K2-0905 | Í¨ÓÃ | ÎÈ¶¨ |
-| Qwen3.5-Plus | Í¨ÓÃ | ÎÈ¶¨ |
-| Qwen3-Coder-Next | ´úÂë | ÎÈ¶¨ |
+| Doubao-Seed-2.0-Code | ä»£ç  | Beta |
+| Doubao-Seed-1.8 | é€šç”¨ | ç¨³å®š |
+| Doubao-Seed-Code | ä»£ç  | ç¨³å®š |
+| MiniMax-M2.5 | é€šç”¨ | ç¨³å®š |
+| MiniMax-M2.1 | é€šç”¨ | ç¨³å®š |
+| MiniMax-M2 | é€šç”¨ | ç¨³å®š |
+| GLM-5 | é€šç”¨ | Beta |
+| GLM-4.7 | é€šç”¨ | ç¨³å®š |
+| GLM-4.6 | é€šç”¨ | ç¨³å®š |
+| DeepSeek-V3.1-Terminus | é€šç”¨ | ç¨³å®š |
+| Kimi-K2.5 | é€šç”¨ | Beta |
+| Kimi-K2-0905 | é€šç”¨ | ç¨³å®š |
+| Qwen3.5-Plus | é€šç”¨ | ç¨³å®š |
+| Qwen3-Coder-Next | ä»£ç  | ç¨³å®š |
 
 ---
 
-## 3. ¼¼Êõ¼Ü¹¹
+## 3. æŠ€æœ¯æ¶æ„
 
 ```
-ÓÃ»§Ó¦ÓÃ(ChatBox/NextChatµÈ)
-       ©¦ OpenAI API
-       ¨‹
-  ©°©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©´
-  ©¦          trae-proxy              ©¦
-  ©¦  ©°©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©´ ©°©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©´  ©¦
-  ©¦  ©¦ API¼æÈİ²ã  ©¦ ©¦ Ğ­Òé×ª»»²ã   ©¦  ©¦
-  ©¦  ©¦ (OpenAI)  ©¦ ©¦ (Trae CN)   ©¦  ©¦
-  ©¦  ©¸©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¼ ©¸©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¼  ©¦
-  ©¦  ©°©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©´ ©°©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©´  ©¦
-  ©¦  ©¦ ÈÏÖ¤¹ÜÀíÆ÷ ©¦ ©¦ ÅÅ¶Ó¹ÜÀíÆ÷   ©¦  ©¦
-  ©¦  ©¸©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¼ ©¸©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¼  ©¦
-  ©¦  ©°©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©´                  ©¦
-  ©¦  ©¦ ÕËºÅ³Ø    ©¦                  ©¦
-  ©¦  ©¸©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¼                  ©¦
-  ©¸©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¼
-       ©¦ Trae CN Ğ­Òé
-       ¨‹
-  ×Ö½ÚÌø¶¯ºó¶Ë
+ç”¨æˆ·åº”ç”¨(ChatBox/NextChatç­‰)
+       â”‚ OpenAI API
+       â–¼
+  â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+  â”‚          trae-proxy              â”‚
+  â”‚  â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â” â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”  â”‚
+  â”‚  â”‚ APIå…¼å®¹å±‚  â”‚ â”‚ åè®®è½¬æ¢å±‚   â”‚  â”‚
+  â”‚  â”‚ (OpenAI)  â”‚ â”‚ (Trae CN)   â”‚  â”‚
+  â”‚  â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜ â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜  â”‚
+  â”‚  â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â” â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”  â”‚
+  â”‚  â”‚ è®¤è¯ç®¡ç†å™¨ â”‚ â”‚ æ’é˜Ÿç®¡ç†å™¨   â”‚  â”‚
+  â”‚  â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜ â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜  â”‚
+  â”‚  â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”                  â”‚
+  â”‚  â”‚ è´¦å·æ±     â”‚                  â”‚
+  â”‚  â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜                  â”‚
+  â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+       â”‚ Trae CN åè®®
+       â–¼
+  å­—èŠ‚è·³åŠ¨åç«¯
 ```
 
 ---
 
-## 4. ºËĞÄ API Éè¼Æ
+## 4. æ ¸å¿ƒ API è®¾è®¡
 
-### 4.1 ÁÄÌì²¹È«
+### 4.1 èŠå¤©è¡¥å…¨
 ```
 POST /v1/chat/completions
 Authorization: Bearer <proxy-api-key>
@@ -85,13 +85,13 @@ Authorization: Bearer <proxy-api-key>
 }
 ```
 
-### 4.2 Ä£ĞÍÁĞ±í
+### 4.2 æ¨¡å‹åˆ—è¡¨
 ```
 GET /v1/models
-¡ú ·µ»ØËùÓĞ¿ÉÓÃÄ£ĞÍ£¬º¬ÅÅ¶Ó×´Ì¬À©Õ¹×Ö¶Î
+â†’ è¿”å›æ‰€æœ‰å¯ç”¨æ¨¡å‹ï¼Œå«æ’é˜ŸçŠ¶æ€æ‰©å±•å­—æ®µ
 ```
 
-### 4.3 ÅÅ¶Ó×´Ì¬Í¸´«£¨SSE À©Õ¹£©
+### 4.3 æ’é˜ŸçŠ¶æ€é€ä¼ ï¼ˆSSE æ‰©å±•ï¼‰
 ```
 data: {"object":"queue.status","position":5,"estimated_wait":"30s"}
 data: {"object":"queue.status","position":0}
@@ -101,130 +101,130 @@ data: [DONE]
 
 ---
 
-## 5. ÏîÄ¿½á¹¹
+## 5. é¡¹ç›®ç»“æ„
 
 ```
 trae-proxy/
-©À©¤©¤ cmd/trae-proxy/main.go
-©À©¤©¤ internal/
-©¦   ©À©¤©¤ api/          # HTTP handlers + Â·ÓÉ + ÖĞ¼ä¼ş
-©¦   ©À©¤©¤ adapter/      # OpenAI ? Trae CN ¸ñÊ½×ª»»
-©¦   ©À©¤©¤ auth/         # µÇÂ¼/Token¹ÜÀí
-©¦   ©À©¤©¤ pool/         # ÕËºÅ³Ø/¸ºÔØ¾ùºâ
-©¦   ©À©¤©¤ queue/        # ÅÅ¶Ó¼à¿Ø/´¦Àí
-©¦   ©¸©¤©¤ config/       # ÅäÖÃ¹ÜÀí
-©À©¤©¤ web/              # ¹ÜÀíÃæ°å
-©À©¤©¤ config.yaml
-©À©¤©¤ Dockerfile
-©¸©¤©¤ README.md
+â”œâ”€â”€ cmd/trae-proxy/main.go
+â”œâ”€â”€ internal/
+â”‚   â”œâ”€â”€ api/          # HTTP handlers + è·¯ç”± + ä¸­é—´ä»¶
+â”‚   â”œâ”€â”€ adapter/      # OpenAI ? Trae CN æ ¼å¼è½¬æ¢
+â”‚   â”œâ”€â”€ auth/         # ç™»å½•/Tokenç®¡ç†
+â”‚   â”œâ”€â”€ pool/         # è´¦å·æ± /è´Ÿè½½å‡è¡¡
+â”‚   â”œâ”€â”€ queue/        # æ’é˜Ÿç›‘æ§/å¤„ç†
+â”‚   â””â”€â”€ config/       # é…ç½®ç®¡ç†
+â”œâ”€â”€ web/              # ç®¡ç†é¢æ¿
+â”œâ”€â”€ config.yaml
+â”œâ”€â”€ Dockerfile
+â””â”€â”€ README.md
 ```
 
 ---
 
-## 6. ÈÎÎñ×·×Ù
+## 6. ä»»åŠ¡è¿½è¸ª
 
-### Phase 0: Ğ­ÒéÄæÏò¹¤³Ì ? µ±Ç°½×¶Î
+### Phase 0: åè®®é€†å‘å·¥ç¨‹ ? å½“å‰é˜¶æ®µ
 
-- [ ] **0.1** Ì½Ë÷ Trae CN °²×°Ä¿Â¼½á¹¹
-- [ ] **0.2** ·ÖÎö Electron Ó¦ÓÃÔ´Âë£¨½â°ü asar£©
-- [ ] **0.3** ÌáÈ¡ API ¶Ëµã URL ºÍÈÏÖ¤»úÖÆ
-- [ ] **0.4** ÅäÖÃ mitmproxy ×¥°ü»·¾³
-- [ ] **0.5** ×¥È¡ÍêÕûÍ¨ĞÅÁ÷Á¿£¨µÇÂ¼/¶Ô»°/ÅÅ¶Ó£©
-- [ ] **0.6** ¼ÇÂ¼Ğ­Òé·ÖÎöÎÄµµ
+- [ ] **0.1** æ¢ç´¢ Trae CN å®‰è£…ç›®å½•ç»“æ„
+- [ ] **0.2** åˆ†æ Electron åº”ç”¨æºç ï¼ˆè§£åŒ… asarï¼‰
+- [ ] **0.3** æå– API ç«¯ç‚¹ URL å’Œè®¤è¯æœºåˆ¶
+- [ ] **0.4** é…ç½® mitmproxy æŠ“åŒ…ç¯å¢ƒ
+- [ ] **0.5** æŠ“å–å®Œæ•´é€šä¿¡æµé‡ï¼ˆç™»å½•/å¯¹è¯/æ’é˜Ÿï¼‰
+- [ ] **0.6** è®°å½•åè®®åˆ†ææ–‡æ¡£
 
-### Phase 1: ÈÏÖ¤Ä£¿é
-- [ ] **1.1** ÊµÏÖµÇÂ¼Á÷³ÌÄ£Äâ
-- [ ] **1.2** Token ´æ´¢Óë×Ô¶¯Ë¢ĞÂ
-- [ ] **1.3** ¶àÕËºÅ¹ÜÀí»ù´¡
+### Phase 1: è®¤è¯æ¨¡å—
+- [ ] **1.1** å®ç°ç™»å½•æµç¨‹æ¨¡æ‹Ÿ
+- [ ] **1.2** Token å­˜å‚¨ä¸è‡ªåŠ¨åˆ·æ–°
+- [ ] **1.3** å¤šè´¦å·ç®¡ç†åŸºç¡€
 
-### Phase 2: ºËĞÄÁÄÌì API
-- [ ] **2.1** ÁÄÌìÇëÇó¹¹Ôì
-- [ ] **2.2** Á÷Ê½ÏìÓ¦½âÎö
-- [ ] **2.3** OpenAI ¸ñÊ½×ª»»
-- [ ] **2.4** `/v1/chat/completions` ¶Ëµã
-- [ ] **2.5** `/v1/models` ¶Ëµã
+### Phase 2: æ ¸å¿ƒèŠå¤© API
+- [ ] **2.1** èŠå¤©è¯·æ±‚æ„é€ 
+- [ ] **2.2** æµå¼å“åº”è§£æ
+- [ ] **2.3** OpenAI æ ¼å¼è½¬æ¢
+- [ ] **2.4** `/v1/chat/completions` ç«¯ç‚¹
+- [ ] **2.5** `/v1/models` ç«¯ç‚¹
 
-### Phase 3: ÅÅ¶ÓÏµÍ³
-- [ ] **3.1** ÅÅ¶Ó×´Ì¬¼ì²â
-- [ ] **3.2** SSE ½ø¶ÈÍÆËÍ
-- [ ] **3.3** ³¬Ê±´¦Àí
+### Phase 3: æ’é˜Ÿç³»ç»Ÿ
+- [ ] **3.1** æ’é˜ŸçŠ¶æ€æ£€æµ‹
+- [ ] **3.2** SSE è¿›åº¦æ¨é€
+- [ ] **3.3** è¶…æ—¶å¤„ç†
 
-### Phase 4: ¶àÕËºÅ¸ºÔØ¾ùºâ
-- [ ] **4.1** ÕËºÅ³Ø¹ÜÀí
-- [ ] **4.2** ÂÖÑ¯²ßÂÔ
-- [ ] **4.3** ¹ÊÕÏ×ªÒÆ
+### Phase 4: å¤šè´¦å·è´Ÿè½½å‡è¡¡
+- [ ] **4.1** è´¦å·æ± ç®¡ç†
+- [ ] **4.2** è½®è¯¢ç­–ç•¥
+- [ ] **4.3** æ•…éšœè½¬ç§»
 
-### Phase 5: ¹ÜÀíÃæ°å
-- [ ] **5.1** ÄÚÇ¶ Web UI
-- [ ] **5.2** ÕËºÅ/Í³¼Æ/ÅÅ¶Ó¿ÉÊÓ»¯
+### Phase 5: ç®¡ç†é¢æ¿
+- [ ] **5.1** å†…åµŒ Web UI
+- [ ] **5.2** è´¦å·/ç»Ÿè®¡/æ’é˜Ÿå¯è§†åŒ–
 
 ---
 
-## 7. Ğ­Òé·ÖÎö¼ÇÂ¼£¨Phase 0 ÒÑÍê³É£©
+## 7. åè®®åˆ†æè®°å½•ï¼ˆPhase 0 å·²å®Œæˆï¼‰
 
-### 7.1 °²×°Ä¿Â¼½á¹¹
+### 7.1 å®‰è£…ç›®å½•ç»“æ„
 
-**Trae CN v1.107.1** ¡ª Electron Ó¦ÓÃ£¬**ÎŞ asar ´ò°ü**£¬Ô´ÂëÖ±½Ó¿É¶Á¡£
+**Trae CN v1.107.1** â€” Electron åº”ç”¨ï¼Œ**æ—  asar æ‰“åŒ…**ï¼Œæºç ç›´æ¥å¯è¯»ã€‚
 
 ```
 D:\Trae CN\
-©À©¤©¤ Trae CN.exe                          # Electron Ö÷³ÌĞò
-©À©¤©¤ resources/app/
-©¦   ©À©¤©¤ out/main.js                      # Electron Èë¿Ú
-©¦   ©À©¤©¤ product.json                     # ºËĞÄÅäÖÃ£¨º¬ËùÓĞAPIÓòÃû£©
-©¦   ©¸©¤©¤ extensions/
-©¦       ©¸©¤©¤ ai-completion/               # AI ºËĞÄÀ©Õ¹
-©¦           ©À©¤©¤ resource/aiserver/
-©¦           ©¦   ©¸©¤©¤ server.js            # 15.8MB Node.js AI·şÎñ
-©¦           ©¸©¤©¤ dist/
-©¦               ©¸©¤©¤ extension.js         # 8.1MB À©Õ¹Èë¿Ú
-©¸©¤©¤ modules/ai-agent/
-    ©À©¤©¤ ai_agent.dll                     # Rust AI Agent (¶Ë¿Ú40005)
-    ©¸©¤©¤ sscronet.dll                     # ×Ö½Ú TTNet ÍøÂç¿â£¨Cronet¸Ä£©
+â”œâ”€â”€ Trae CN.exe                          # Electron ä¸»ç¨‹åº
+â”œâ”€â”€ resources/app/
+â”‚   â”œâ”€â”€ out/main.js                      # Electron å…¥å£
+â”‚   â”œâ”€â”€ product.json                     # æ ¸å¿ƒé…ç½®ï¼ˆå«æ‰€æœ‰APIåŸŸåï¼‰
+â”‚   â””â”€â”€ extensions/
+â”‚       â””â”€â”€ ai-completion/               # AI æ ¸å¿ƒæ‰©å±•
+â”‚           â”œâ”€â”€ resource/aiserver/
+â”‚           â”‚   â””â”€â”€ server.js            # 15.8MB Node.js AIæœåŠ¡
+â”‚           â””â”€â”€ dist/
+â”‚               â””â”€â”€ extension.js         # 8.1MB æ‰©å±•å…¥å£
+â””â”€â”€ modules/ai-agent/
+    â”œâ”€â”€ ai_agent.dll                     # Rust AI Agent (ç«¯å£40005)
+    â””â”€â”€ sscronet.dll                     # å­—èŠ‚ TTNet ç½‘ç»œåº“ï¼ˆCronetæ”¹ï¼‰
 ```
 
-**ÓÃ»§Êı¾İÄ¿Â¼**: `%APPDATA%\Trae CN\`
+**ç”¨æˆ·æ•°æ®ç›®å½•**: `%APPDATA%\Trae CN\`
 
-### 7.2 API ¶Ëµã
+### 7.2 API ç«¯ç‚¹
 
-**Ö÷ÓòÃû**: `https://trae-api-cn.mchost.guru`
+**ä¸»åŸŸå**: `https://trae-api-cn.mchost.guru`
 
-| ¶Ëµã | ·½·¨ | ÓÃÍ¾ |
+| ç«¯ç‚¹ | æ–¹æ³• | ç”¨é€” |
 |------|------|------|
-| `/api/agent/v3/create_agent_task` | POST | **ºËĞÄÁÄÌìAPI**£¨Á÷Ê½SSE£© |
-| `/api/agent/v3/commit_toolcall_result` | POST | ¹¤¾ßµ÷ÓÃ½á¹ûÌá½» |
-| `/api/ide/v1/chat_completion` | POST | ¼òµ¥ÁÄÌì£¨DevSendMessages£© |
-| `/api/ide/v1/llm_raw_chat` | POST | Ô­Ê¼LLMÁÄÌì |
-| `/api/ide/v1/get_detail_param` | POST | Ä£ĞÍÏêÏ¸ÅäÖÃ/Prompt |
-| `/api/ide/v1/model_list` | POST | Ä£ĞÍÁĞ±í |
-| `/api/v1/commercial/chat_mode` | POST | ÉÌÒµÁÄÌìÄ£Ê½ |
-| `/api/ide/v1/code_completion_stream` | POST | ´úÂë²¹È«£¨Á÷Ê½£© |
-| `/api/ide/v1/features` | POST | ¹¦ÄÜÌØĞÔ²éÑ¯ |
-| `/api/ide/v1/fast_apply` | POST | ¿ìËÙÓ¦ÓÃ |
-| `/api/ide/v1/embeddings` | POST | ÏòÁ¿Ç¶Èë |
-| `/api/ide/v1/get_client_config` | POST | ¿Í»§¶ËÅäÖÃ |
-| `/api/ide/v1/privacy/query` | GET | ÒşË½Ä£Ê½²éÑ¯ |
+| `/api/agent/v3/create_agent_task` | POST | **æ ¸å¿ƒèŠå¤©API**ï¼ˆæµå¼SSEï¼‰ |
+| `/api/agent/v3/commit_toolcall_result` | POST | å·¥å…·è°ƒç”¨ç»“æœæäº¤ |
+| `/api/ide/v1/chat_completion` | POST | ç®€å•èŠå¤©ï¼ˆDevSendMessagesï¼‰ |
+| `/api/ide/v1/llm_raw_chat` | POST | åŸå§‹LLMèŠå¤© |
+| `/api/ide/v1/get_detail_param` | POST | æ¨¡å‹è¯¦ç»†é…ç½®/Prompt |
+| `/api/ide/v1/model_list` | POST | æ¨¡å‹åˆ—è¡¨ |
+| `/api/v1/commercial/chat_mode` | POST | å•†ä¸šèŠå¤©æ¨¡å¼ |
+| `/api/ide/v1/code_completion_stream` | POST | ä»£ç è¡¥å…¨ï¼ˆæµå¼ï¼‰ |
+| `/api/ide/v1/features` | POST | åŠŸèƒ½ç‰¹æ€§æŸ¥è¯¢ |
+| `/api/ide/v1/fast_apply` | POST | å¿«é€Ÿåº”ç”¨ |
+| `/api/ide/v1/embeddings` | POST | å‘é‡åµŒå…¥ |
+| `/api/ide/v1/get_client_config` | POST | å®¢æˆ·ç«¯é…ç½® |
+| `/api/ide/v1/privacy/query` | GET | éšç§æ¨¡å¼æŸ¥è¯¢ |
 
 **WebSocket**: `wss://trae-ws-cn.mchost.guru/custom_model`
-**¼à¿Ø**: `https://mon.zijieapi.com/monitor_browser/collect/batch/`
-**ÌØÕ÷ÃÅ**: `https://bytegate.zijieapi.com/api/v1/feature_gates/value`
+**ç›‘æ§**: `https://mon.zijieapi.com/monitor_browser/collect/batch/`
+**ç‰¹å¾é—¨**: `https://bytegate.zijieapi.com/api/v1/feature_gates/value`
 
-### 7.3 ÈÏÖ¤·½Ê½
+### 7.3 è®¤è¯æ–¹å¼
 
-#### Token ´æ´¢Î»ÖÃ
+#### Token å­˜å‚¨ä½ç½®
 ```
-ÎÄ¼ş: %APPDATA%\Trae CN\User\globalStorage\storage.json
-¼üÃû: iCubeAuthInfo://icube.cloudide
-¸ñÊ½: JSON×Ö·û´®
+æ–‡ä»¶: %APPDATA%\Trae CN\User\globalStorage\storage.json
+é”®å: iCubeAuthInfo://icube.cloudide
+æ ¼å¼: JSONå­—ç¬¦ä¸²
 ```
 
-#### Token ½á¹¹
+#### Token ç»“æ„
 ```json
 {
   "token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9...",  // JWT Token
-  "refreshToken": "3bNkEJox...",                         // Ë¢ĞÂÁîÅÆ
-  "expiredAt": "2026-03-19T06:38:49.507Z",              // ¹ıÆÚÊ±¼ä
-  "refreshExpiredAt": "2026-09-01T06:38:49.507Z",       // Ë¢ĞÂ¹ıÆÚ
+  "refreshToken": "3bNkEJox...",                         // åˆ·æ–°ä»¤ç‰Œ
+  "expiredAt": "2026-03-19T06:38:49.507Z",              // è¿‡æœŸæ—¶é—´
+  "refreshExpiredAt": "2026-09-01T06:38:49.507Z",       // åˆ·æ–°è¿‡æœŸ
   "userId": "643654987296776",
   "host": "https://api.trae.com.cn",
   "userRegion": {"region": "CN", "_aiRegion": "CN"},
@@ -238,14 +238,14 @@ D:\Trae CN\
 }
 ```
 
-#### ÇëÇóÍ·ÈÏÖ¤Âß¼­
+#### è¯·æ±‚å¤´è®¤è¯é€»è¾‘
 ```
-Cloud IDE ²úÆ· ¡ú X-Auth-Token: <token>
-IDE ²úÆ· (trae) ¡ú X-IDE-Token: <token>  ¡û ÎÒÃÇÊ¹ÓÃÕâ¸ö
-Ä¬ÈÏ ¡ú X-JWT-Token: <token>
+Cloud IDE äº§å“ â†’ X-Auth-Token: <token>
+IDE äº§å“ (trae) â†’ X-IDE-Token: <token>  â† æˆ‘ä»¬ä½¿ç”¨è¿™ä¸ª
+é»˜è®¤ â†’ X-JWT-Token: <token>
 ```
 
-#### ÍêÕûÇëÇóÍ·£¨27¸ö£¬Agent V3µ÷ÓÃ£©
+#### å®Œæ•´è¯·æ±‚å¤´ï¼ˆ27ä¸ªï¼ŒAgent V3è°ƒç”¨ï¼‰
 ```
 x-app-id: 6eefa01c-1036-4c7e-9ca5-d891f63bfcd8
 x-app-version: default
@@ -268,9 +268,9 @@ X-IDE-Token: <JWT token>
 Content-Type: application/json
 ```
 
-### 7.4 ÇëÇó/ÏìÓ¦¸ñÊ½
+### 7.4 è¯·æ±‚/å“åº”æ ¼å¼
 
-#### ¼òµ¥ÁÄÌì (chat_completion) ÇëÇóÌå×Ö¶Î
+#### ç®€å•èŠå¤© (chat_completion) è¯·æ±‚ä½“å­—æ®µ
 ```json
 {
   "messages": [{"role": "user", "content": "..."}],
@@ -286,11 +286,11 @@ Content-Type: application/json
 ```
 
 #### Agent V3 (create_agent_task) 
-- BodyÔ¼300KB£¬°üº¬ÍêÕûÉÏÏÂÎÄ£¨prompts¡¢tools¶¨Òå¡¢rulesµÈ£©
-- ·µ»ØSSEÁ÷Ê½ÏìÓ¦
-- config_name Ö¸¶¨Ä£ĞÍ£¨Èç "qwen3-coder", "glm-5"£©
+- Bodyçº¦300KBï¼ŒåŒ…å«å®Œæ•´ä¸Šä¸‹æ–‡ï¼ˆpromptsã€toolså®šä¹‰ã€rulesç­‰ï¼‰
+- è¿”å›SSEæµå¼å“åº”
+- config_name æŒ‡å®šæ¨¡å‹ï¼ˆå¦‚ "qwen3-coder", "glm-5"ï¼‰
 
-#### get_detail_param ÇëÇó£¨»ñÈ¡Ä£ĞÍÅäÖÃ+Prompt£©
+#### get_detail_param è¯·æ±‚ï¼ˆè·å–æ¨¡å‹é…ç½®+Promptï¼‰
 ```json
 {
   "function": "chat_v3",     // chat/chat_v3/builder/builder_v3/solo_coder/solo_builder/ui_builder_v2/inline_chat/git_ai/refactor
@@ -303,7 +303,7 @@ Content-Type: application/json
 }
 ```
 
-#### SSE ÏìÓ¦¸ñÊ½£¨TimingCostÊ¾Àı£©
+#### SSE å“åº”æ ¼å¼ï¼ˆTimingCostç¤ºä¾‹ï¼‰
 ```json
 {
   "config_name": "qwen3-coder",
@@ -316,57 +316,57 @@ Content-Type: application/json
 }
 ```
 
-### 7.5 ÅÅ¶Ó»úÖÆ
+### 7.5 æ’é˜Ÿæœºåˆ¶
 
-#### ¶ÓÁĞÀàĞÍ
+#### é˜Ÿåˆ—ç±»å‹
 ```
-BetaModelSlowQueue = 6        # BetaÄ£ĞÍÅÅ¶Ó
-AdvancedModelSlowQueue         # ¸ß¼¶Ä£ĞÍÅÅ¶Ó
-```
-
-#### ´íÎóÂë
-```
-REQUEST_WAIT_EXCEED_QUEUE_SIZE = 0xfd2 (4050)  # ¶ÓÁĞÒÑÂú
-REQUEST_WAIT_IN_QUEUE_TIMEOUT = 0xfd3 (4051)   # ÅÅ¶Ó³¬Ê±
+BetaModelSlowQueue = 6        # Betaæ¨¡å‹æ’é˜Ÿ
+AdvancedModelSlowQueue         # é«˜çº§æ¨¡å‹æ’é˜Ÿ
 ```
 
-#### ÅÅ¶ÓÏûÏ¢
+#### é”™è¯¯ç 
+```
+REQUEST_WAIT_EXCEED_QUEUE_SIZE = 0xfd2 (4050)  # é˜Ÿåˆ—å·²æ»¡
+REQUEST_WAIT_IN_QUEUE_TIMEOUT = 0xfd3 (4051)   # æ’é˜Ÿè¶…æ—¶
+```
+
+#### æ’é˜Ÿæ¶ˆæ¯
 ```
 "Too many current requests. Your queue position is {position}."
 ```
 
-#### ¶ÓÁĞÖ¸±ê
+#### é˜Ÿåˆ—æŒ‡æ ‡
 ```
-queueStartTime       # ÅÅ¶Ó¿ªÊ¼Ê±¼ä
-queueCostTime        # ÅÅ¶Ó»¨·ÑÊ±¼ä
-aiRequestQueueMaxDisplayPosition  # ×î´óÏÔÊ¾Î»ÖÃ
+queueStartTime       # æ’é˜Ÿå¼€å§‹æ—¶é—´
+queueCostTime        # æ’é˜ŸèŠ±è´¹æ—¶é—´
+aiRequestQueueMaxDisplayPosition  # æœ€å¤§æ˜¾ç¤ºä½ç½®
 ```
 
-#### ·şÎñ·½·¨
+#### æœåŠ¡æ–¹æ³•
 ```
 Chat, ResumeChat, AppendChat, StopChat
-JumpQueueTask (²å¶Ó/ÓÅÏÈ)
+JumpQueueTask (æ’é˜Ÿ/ä¼˜å…ˆ)
 GetSessions, CreateSession, DeleteSession
 GetMessages, DeleteMessage, RevertMessage
 FastApply, MigrateChatHistory
 ```
 
-### 7.6 ÍøÂç¼Ü¹¹
+### 7.6 ç½‘ç»œæ¶æ„
 
 #### TTNet/sscronet
-- ai-agent.dll Í¨¹ı sscronet.dll£¨×Ö½Ú TTNet/Cronet ¸Ä°æ£©·¢ËÍ HTTP ÇëÇó
+- ai-agent.dll é€šè¿‡ sscronet.dllï¼ˆå­—èŠ‚ TTNet/Cronet æ”¹ç‰ˆï¼‰å‘é€ HTTP è¯·æ±‚
 - UserAgent: "TraeClient/TTNet"
 - appId: 787976, channel: icube-ai, envId: trae_desktop
-- ÅäÖÃÂ·¾¶: `%APPDATA%\Trae CN\ahanet`
-- ÆôÓÃ×ÔÓĞ CA Store: enableCaStore=true
+- é…ç½®è·¯å¾„: `%APPDATA%\Trae CN\ahanet`
+- å¯ç”¨è‡ªæœ‰ CA Store: enableCaStore=true
 
-#### IPC Í¨ĞÅ¼Ü¹¹
+#### IPC é€šä¿¡æ¶æ„
 ```
 extension.js (Node.js)
     ? JSON-RPC over AHA IPC
 ai-agent.dll (Rust, port 40005)
     ? sscronet/TTNet HTTP
-trae-api-cn.mchost.guru (ºó¶Ë)
+trae-api-cn.mchost.guru (åç«¯)
 ```
 
 #### Boot Config
@@ -379,20 +379,20 @@ tea_app_id: 711126
 slardar_bid: trae_cn
 ```
 
-### 7.7 Ä£ĞÍÅäÖÃĞÅÏ¢
+### 7.7 æ¨¡å‹é…ç½®ä¿¡æ¯
 
 ```rust
 CustomModel {
   provider: "",
   is_preset: true,
-  config_name: "glm-5",         // ÄÚ²¿Ãû³Æ
+  config_name: "glm-5",         // å†…éƒ¨åç§°
   config_source: Trae,
-  model_name: "glm-5",          // API Ä£ĞÍÃû
-  display_model_name: "GLM-5",  // ÏÔÊ¾Ãû
+  model_name: "glm-5",          // API æ¨¡å‹å
+  display_model_name: "GLM-5",  // æ˜¾ç¤ºå
   use_remote_service: true,
   multimodal: false,
 }
 ```
 
-**Ä£ĞÍÅäÖÃº¯ÊıÁĞ±í**£¨get_detail_param£©:
+**æ¨¡å‹é…ç½®å‡½æ•°åˆ—è¡¨**ï¼ˆget_detail_paramï¼‰:
 chat, chat_v3, builder, builder_v3, solo_coder, solo_builder, ui_builder_v2, inline_chat, git_ai, custom_agent_generation, utils, code_reviewer, code_review_summary, refactor

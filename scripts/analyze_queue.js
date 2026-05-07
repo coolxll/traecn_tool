@@ -1,21 +1,21 @@
 const fs = require('fs');
 const c = fs.readFileSync('D:/Trae CN/resources/app/extensions/ai-completion/resource/aiserver/server.js', 'utf8');
 
-// 1. ËÑË÷ enable_chat_completion_backup_host ¸½½üµÄÉÏÏÂÎÄ
-console.log('=== backup_host ÅäÖÃ ===');
+// 1. æœç´¢ enable_chat_completion_backup_host é™„è¿‘çš„ä¸Šä¸‹æ–‡
+console.log('=== backup_host é…ç½® ===');
 let idx = c.indexOf('enable_chat_completion_backup_host');
 if (idx !== -1) {
   console.log(c.substring(Math.max(0, idx - 300), Math.min(c.length, idx + 300)));
 }
 
-// 2. ËÑË÷ queue position Ïà¹Ø´úÂë
-console.log('\n=== Queue Position ÏêÇé ===');
+// 2. æœç´¢ queue position ç›¸å…³ä»£ç 
+console.log('\n=== Queue Position è¯¦æƒ… ===');
 idx = c.indexOf('queue position is');
 if (idx !== -1) {
   console.log(c.substring(Math.max(0, idx - 400), Math.min(c.length, idx + 200)));
 }
 
-// 3. ËÑË÷ BetaModelSlowQueue ºÍ AdvancedModelSlowQueue 
+// 3. æœç´¢ BetaModelSlowQueue å’Œ AdvancedModelSlowQueue 
 console.log('\n=== BetaModelSlowQueue ===');
 idx = c.indexOf('BetaModelSlowQueue');
 if (idx !== -1) {
@@ -28,7 +28,7 @@ if (idx !== -1) {
   console.log(c.substring(Math.max(0, idx - 300), Math.min(c.length, idx + 300)));
 }
 
-// 4. ËÑË÷ jumpQueueTask Ïà¹Ø´úÂë
+// 4. æœç´¢ jumpQueueTask ç›¸å…³ä»£ç 
 console.log('\n=== jumpQueueTask ===');
 idx = c.indexOf('jumpQueueTask');
 while (idx !== -1) {
@@ -38,8 +38,8 @@ while (idx !== -1) {
   idx = c.indexOf('jumpQueueTask', idx + 1);
 }
 
-// 5. ËÑË÷ REQUEST_WAIT Ïà¹Ø
-console.log('\n=== REQUEST_WAIT ´íÎóÂë ===');
+// 5. æœç´¢ REQUEST_WAIT ç›¸å…³
+console.log('\n=== REQUEST_WAIT é”™è¯¯ç  ===');
 const waitPatterns = ['REQUEST_WAIT_EXCEED_QUEUE_SIZE', 'REQUEST_WAIT_IN_QUEUE_TIMEOUT'];
 waitPatterns.forEach(p => {
   let i = c.indexOf(p);
@@ -50,8 +50,8 @@ waitPatterns.forEach(p => {
   }
 });
 
-// 6. ËÑË÷Ä£ÐÍÏà¹ØÅäÖÃ - ModelConfig ½á¹¹
-console.log('\n=== ModelConfig ½á¹¹ ===');
+// 6. æœç´¢æ¨¡åž‹ç›¸å…³é…ç½® - ModelConfig ç»“æž„
+console.log('\n=== ModelConfig ç»“æž„ ===');
 const mcPatterns = c.match(/['"](?:model_config|modelConfig|model_type|modelType|provider_name|provider_id|is_beta|isBeta|max_token|maxToken|display_name|displayName|model_key|support_stream)['"]/gi);
 if (mcPatterns) {
   [...new Set(mcPatterns)].sort().forEach(x => console.log(x));

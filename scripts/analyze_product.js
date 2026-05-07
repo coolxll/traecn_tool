@@ -1,10 +1,10 @@
 const fs = require('fs');
 
-// ¶ÁÈ¡ product.json ÖĞµÄÍêÕûÅäÖÃ
+// è¯»å– product.json ä¸­çš„å®Œæ•´é…ç½®
 const product = JSON.parse(fs.readFileSync('D:/Trae CN/resources/app/product.json', 'utf8'));
 
-// ´òÓ¡Óë AI/copilot/icube Ïà¹ØµÄÅäÖÃ
-console.log('=== AI/Copilot Ïà¹ØÅäÖÃ ===');
+// æ‰“å°ä¸ AI/copilot/icube ç›¸å…³çš„é…ç½®
+console.log('=== AI/Copilot ç›¸å…³é…ç½® ===');
 function findKeys(obj, prefix = '') {
   for (const key of Object.keys(obj)) {
     const fullKey = prefix ? `${prefix}.${key}` : key;

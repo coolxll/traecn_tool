@@ -1,8 +1,8 @@
 const fs = require('fs');
 const c = fs.readFileSync('D:/Trae CN/resources/app/extensions/ai-completion/resource/aiserver/server.js', 'utf8');
 
-// 1. ËÑË÷ base URL / host ÅäÖÃ
-console.log('=== Base URL / Host ÅäÖÃ ===');
+// 1. æœç´¢ base URL / host é…ç½®
+console.log('=== Base URL / Host é…ç½® ===');
 ['copilot-cn.bytedance', 'trae-api-cn', 'api.trae.com.cn', 'bytegate.zijieapi'].forEach(h => {
   let idx = c.indexOf(h);
   while (idx !== -1) {
@@ -15,29 +15,29 @@ console.log('=== Base URL / Host ÅäÖÃ ===');
   }
 });
 
-// 2. ËÑË÷ queue / waiting Ïà¹Ø
-console.log('\n=== ÅÅ¶Ó/µÈ´ýÏà¹Ø ===');
-const queuePatterns = c.match(/['"][^'"]*(?:queue|waiting|wait_position|pending|queueing|ÅÅ¶Ó)[^'"]*['"]/gi);
+// 2. æœç´¢ queue / waiting ç›¸å…³
+console.log('\n=== æŽ’é˜Ÿ/ç­‰å¾…ç›¸å…³ ===');
+const queuePatterns = c.match(/['"][^'"]*(?:queue|waiting|wait_position|pending|queueing|æŽ’é˜Ÿ)[^'"]*['"]/gi);
 if (queuePatterns) {
   [...new Set(queuePatterns)].forEach(x => console.log(x));
 }
 
-// 3. ËÑË÷ model name Ïà¹Ø£¨ÑéÖ¤Ä£ÐÍÃû¸ñÊ½£©
-console.log('\n=== Ä£ÐÍÃû¸ñÊ½ ===');
+// 3. æœç´¢ model name ç›¸å…³ï¼ˆéªŒè¯æ¨¡åž‹åæ ¼å¼ï¼‰
+console.log('\n=== æ¨¡åž‹åæ ¼å¼ ===');
 const modelPatterns = c.match(/['"](?:doubao|minimax|glm|deepseek|kimi|qwen)[^'"]*['"]/gi);
 if (modelPatterns) {
   [...new Set(modelPatterns)].sort().forEach(x => console.log(x));
 }
 
-// 4. ËÑË÷ stream Ïà¹Ø
-console.log('\n=== Stream/SSE Ä£Ê½ ===');
+// 4. æœç´¢ stream ç›¸å…³
+console.log('\n=== Stream/SSE æ¨¡å¼ ===');
 const streamPatterns = c.match(/['"][^'"]*(?:text\/event-stream|stream_chat|stream_mode|is_stream)[^'"]*['"]/gi);
 if (streamPatterns) {
   [...new Set(streamPatterns)].forEach(x => console.log(x));
 }
 
-// 5. ËÑË÷ chat_completion ÇëÇóÌå¹¹Ôì
-console.log('\n=== chat body ×Ö¶ÎÃû ===');
+// 5. æœç´¢ chat_completion è¯·æ±‚ä½“æž„é€ 
+console.log('\n=== chat body å­—æ®µå ===');
 const bodyFields = c.match(/['"](?:messages|prompt|model|model_id|model_name|temperature|max_tokens|top_p|system_prompt|conversation_id|session_id|extra_info)['"]/gi);
 if (bodyFields) {
   [...new Set(bodyFields)].sort().forEach(x => console.log(x));

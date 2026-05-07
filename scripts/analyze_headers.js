@@ -1,7 +1,7 @@
 const fs = require('fs');
 const c = fs.readFileSync('D:/Trae CN/resources/app/extensions/ai-completion/resource/aiserver/server.js', 'utf8');
 
-// ËÑË÷ÇëÇóÍ·
+// æœç´¢è¯·æ±‚å¤´
 const headers = ['x-authorization','Authorization','x-device-id','x-session-id','x-token','x-client','x-request-id','x-uid','x-product','x-machine-id','x-trace','x-app-id','x-flow-id','cookie','set-cookie','x-tt','x-mstoken','x-bogus'];
 headers.forEach(h => {
   const r = new RegExp(h, 'gi');
@@ -10,7 +10,7 @@ headers.forEach(h => {
 });
 
 console.log('\n--- Header-like strings near requests ---');
-// ËÑË÷¿´ÆğÀ´Ïñ header ÉèÖÃµÄÄ£Ê½
+// æœç´¢çœ‹èµ·æ¥åƒ header è®¾ç½®çš„æ¨¡å¼
 const headerPatterns = c.match(/['"][xX]-[\w-]+['"]\s*[,:]/g);
 if (headerPatterns) {
   const unique = [...new Set(headerPatterns)].sort();
