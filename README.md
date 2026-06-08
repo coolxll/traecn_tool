@@ -2,12 +2,13 @@
 
 > Trae CN → OpenAI Compatible API 反向代理工具
 
-将 [Trae CN](https://www.trae.com.cn/)（字节跳动 AI IDE）中的 14+ 个 AI 模型反代为标准 OpenAI 兼容 API，适配任何支持 OpenAI API 的客户端。
+将 [Trae CN](https://www.trae.com.cn/)（字节跳动 AI IDE）中的 20+ 个 AI 模型反代为标准 OpenAI 兼容 API，适配任何支持 OpenAI API 的客户端。
 
 ## 特性
 
 - **OpenAI 兼容 API** — 标准 `/v1/chat/completions` 和 `/v1/models` 接口
-- **14+ 模型支持** — Doubao-Seed、DeepSeek、GLM-5、Kimi-K2、Qwen3、Claude、GPT-4.1 等
+- **20+ 模型支持** — Doubao、DeepSeek、GLM、Kimi、Qwen、MiniMax 等
+- **AES-256-GCM 加密** — 请求体加密，模拟 Trae CN 客户端通信协议
 - **SSE 流式输出** — 完整的 Server-Sent Events 流式响应支持
 - **多账号管理** — 轮询负载均衡，自动 Token 刷新
 - **排队透传** — 实时显示模型排队位置和等待人数
@@ -16,23 +17,35 @@
 
 ## 支持的模型
 
+### V1 原始聊天模型
+
 | 模型 | 提供商 | Config Name |
 |------|--------|-------------|
-| Doubao-Seed-1.6 | 字节跳动 | `doubao-seed-1.6` |
-| Doubao-1.5-Pro | 字节跳动 | `doubao-1.5-pro` |
-| DeepSeek-V3 | DeepSeek | `deepseek-v3` |
-| DeepSeek-R1 | DeepSeek | `deepseek-r1` |
+| Doubao-1.5-Pro | 字节跳动 | `seed_m8` |
+| DeepSeek-R1 | DeepSeek | `deepseek-R1` |
+| DeepSeek-V3 | DeepSeek | `deepseek-V3` |
+| DeepSeek-V3-0324 | DeepSeek | `deepseek-V3-0324` |
+
+### V3 Agent 模型
+
+| 模型 | 提供商 | Config Name |
+|------|--------|-------------|
+| DeepSeek-V4-Pro | DeepSeek | `DeepSeek-V4-Pro` |
+| DeepSeek-V4-Flash | DeepSeek | `DeepSeek-V4-Flash` |
+| GLM-5.1 | 智谱 | `glm-5.1` |
 | GLM-5 | 智谱 | `glm-5` |
-| GLM-4-Plus | 智谱 | `glm-4-plus` |
-| Kimi-K2 | Moonshot | `kimi-k2` |
-| MiniMax-M1 | MiniMax | `minimax-m1` |
+| GLM-4.7 | 智谱 | `glm-4.7` |
+| Kimi-K2.6 | Moonshot | `kimi-k2.6` |
+| Qwen-3.6-Plus | 阿里巴巴 | `qwen-3.6-plus` |
+| Qwen-3.5 | 阿里巴巴 | `qwen-3.5` |
 | Qwen3-Coder | 阿里巴巴 | `qwen3-coder` |
-| Qwen3 | 阿里巴巴 | `qwen3` |
-| Gemini-2.5-Pro | Google | `gemini-2.5-pro` |
-| Claude-Sonnet-4 | Anthropic | `claude-sonnet-4` |
-| GPT-4.1 | OpenAI | `gpt-4.1` |
+| Doubao-Seed-2.0-Code | 字节跳动 | `Doubao-Seed-2.0-Code` |
+| Doubao-Seed-1.8 | 字节跳动 | `doubao_1_8` |
+| MiniMax-M2.7 | MiniMax | `minimax-m2.7` |
+| MiniMax-M2.5 | MiniMax | `minimax-m2.5` |
 
 > 模型列表会随 Trae CN 版本更新而变化，可通过 `/v1/models` 接口实时获取。
+> 当前代码仅实现 V1 协议，V3 Agent 模型需要 V3 协议支持（待实现）。
 
 ## 快速开始
 
@@ -169,6 +182,7 @@ GET /v1/queue/status?model=glm-5   # 指定模型的排队状态
 └─────────────┘     └──────────────┘     └──────────────────────┘
                      │ Token 提取    │
                      │ 格式转换      │
+                     │ AES-256-GCM  │  ← 请求体加密
                      │ SSE 流式      │
                      │ 排队监控      │
                      │ 多账号轮询    │
@@ -178,9 +192,10 @@ GET /v1/queue/status?model=glm-5   # 指定模型的排队状态
 
 1. **Token 提取** — 自动从 Trae CN 的 `storage.json` 读取 JWT Token
 2. **请求转换** — 将 OpenAI 格式请求转为 Trae CN API 格式
-3. **请求转发** — 带上完整的设备信息和认证头发送到 Trae 后端
-4. **响应转换** — 将 Trae CN SSE 流转为 OpenAI SSE 格式
-5. **排队监控** — 实时检测并暴露排队状态
+3. **请求加密** — 使用 AES-256-GCM 加密请求体（模拟 Trae CN 客户端协议）
+4. **请求转发** — 带上完整的设备信息、认证头和加密参数发送到 Trae 后端
+5. **响应转换** — 将 Trae CN SSE 流转为 OpenAI SSE 格式
+6. **排队监控** — 实时检测并暴露排队状态
 
 ## 项目结构
 
@@ -191,12 +206,14 @@ traecn_tool/
 │       └── main.go              # 程序入口
 ├── internal/
 │   ├── auth/
-│   │   └── token.go             # Token 提取与管理
+│   │   └── token.go             # Token 提取与多账号管理
 │   ├── config/
-│   │   ├── config.go            # 配置加载
+│   │   ├── config.go            # 配置加载与持久化
 │   │   └── constants.go         # API 常量与端点
 │   ├── device/
-│   │   └── device.go            # 设备信息模拟
+│   │   └── device.go            # 设备指纹生成与请求头
+│   ├── encoding/
+│   │   └── trae.go              # AES-256-GCM 加密（请求体加密）
 │   ├── models/
 │   │   └── models.go            # 模型定义
 │   ├── openai/
@@ -212,8 +229,6 @@ traecn_tool/
 ├── scripts/
 │   ├── analyze_*.js             # 协议分析脚本
 │   └── find_token.js            # Token 查找工具
-├── .copilot/
-│   └── skills/                  # AI 辅助开发技能
 ├── config.example.json          # 配置示例
 ├── .gitignore
 ├── go.mod
@@ -239,9 +254,18 @@ traecn_tool/
 extension.js (Node.js 扩展)
     ? JSON-RPC over AHA IPC
 ai-agent.dll (Rust, 端口 40005)
-    ? sscronet/TTNet HTTP
+    ? sscronet/TTNet HTTP (AES-256-GCM 加密)
 trae-api-cn.mchost.guru (后端 API)
 ```
+
+### 加密机制
+
+所有请求体使用 AES-256-GCM 加密：
+- **密钥**: 32字节硬编码密钥（从 Trae CN 客户端提取）
+- **密钥混淆**: 每次请求生成 8 字节随机 pin，XOR 密钥前 8 字节得到派生密钥
+- **IV**: 12 字节随机数（前置到密文）
+- **AAD**: Unix 时间戳字符串（来自 `X-Requested-At` 头）
+- **线格式**: Base64(`[12字节 IV] + [密文 + 16字节 GCM tag]`)
 
 完整协议分析详见 [docs/PRD.md](docs/PRD.md)。
 

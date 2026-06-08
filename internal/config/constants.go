@@ -4,18 +4,20 @@ package config
 const (
 	AgentDomain    = "https://trae-api-cn.mchost.guru"
 	WSDomain       = "wss://trae-ws-cn.mchost.guru/custom_model"
-	AppID          = "6eefa01c-1036-4c7e-9ca5-d891f63bfcd8"
-	IDEVersion     = "3.3.37"
-	IDEVersionCode = "20260212"
-	IDEVersionType = "stable"
-	TrafficType    = "prod"
+	AppID            = "6eefa01c-1036-4c7e-9ca5-d891f63bfcd8"
+	IDEVersion       = "3.3.55"
+	IDEVersionCode   = "20260508"
+	AppVersionCode   = "20260401"
+	IDEVersionType   = "stable"
+	TrafficType      = "prod"
 )
 
 // API endpoints
 const (
-	EndpointChatCompletion  = "/api/ide/v1/chat_completion"
-	EndpointLLMRawChat      = "/api/ide/v1/llm_raw_chat"
-	EndpointModelList       = "/api/ide/v1/model_list"
+	EndpointChatCompletion  = "/api/ide/v1/llm_raw_chat"
+	EndpointLLMRawChatV1    = "/api/ide/v1/llm_raw_chat"
+	EndpointLLMRawChatV2    = "/api/ide/v2/llm_raw_chat"
+	EndpointModelList       = "/api/ide/v1/model_list?type=llm_raw_chat"
 	EndpointGetDetailParam  = "/api/ide/v1/get_detail_param"
 	EndpointAgentCreateTask = "/api/agent/v3/create_agent_task"
 	EndpointAgentCommitTool = "/api/agent/v3/commit_toolcall_result"
@@ -28,11 +30,9 @@ const (
 	EndpointChatMode        = "/api/v1/commercial/chat_mode"
 )
 
-// Auth header names
+// Auth header format
 const (
-	HeaderIDEToken  = "X-IDE-Token"
-	HeaderAuthToken = "X-Auth-Token"
-	HeaderJWTToken  = "X-JWT-Token"
+	AuthHeaderFormat = "Cloud-IDE-JWT" // Authorization: Cloud-IDE-JWT <jwt_token>
 )
 
 // Queue error codes

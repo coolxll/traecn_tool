@@ -12,6 +12,8 @@ type Config struct {
 	ListenAddr string          `json:"listen_addr"`
 	Accounts   []AccountConfig `json:"accounts"`
 	LogLevel   string          `json:"log_level"`
+	DeviceID   string          `json:"device_id,omitempty"`
+	MachineID  string          `json:"machine_id,omitempty"`
 }
 
 // AccountConfig holds a single Trae CN account config

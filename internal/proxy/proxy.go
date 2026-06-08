@@ -7,12 +7,15 @@ import (
 	"io"
 	"log/slog"
 	"net/http"
+	"strconv"
+	"strings"
 	"time"
 
 	"github.com/google/uuid"
 	"github.com/zamatewi-cell/traecn_tool/internal/auth"
 	"github.com/zamatewi-cell/traecn_tool/internal/config"
 	"github.com/zamatewi-cell/traecn_tool/internal/device"
+	"github.com/zamatewi-cell/traecn_tool/internal/encoding"
 	"github.com/zamatewi-cell/traecn_tool/internal/queue"
 	"github.com/zamatewi-cell/traecn_tool/internal/sse"
 )
@@ -27,11 +30,11 @@ type TraeProxy struct {
 }
 
 // NewTraeProxy creates a new proxy instance
-func NewTraeProxy(tokens *auth.TokenProvider, logger *slog.Logger) *TraeProxy {
+func NewTraeProxy(tokens *auth.TokenProvider, cfg *config.Config, configPath string, logger *slog.Logger) *TraeProxy {
 	return &TraeProxy{
 		client: &http.Client{Timeout: 5 * time.Minute},
 		tokens: tokens,
-		device: device.NewDeviceInfo(),
+		device: device.NewDeviceInfo(cfg, configPath),
 		queue:  queue.NewMonitor(),
 		logger: logger,
 	}
@@ -63,10 +66,30 @@ func (p *TraeProxy) ChatCompletion(req *ChatCompletionRequest, w http.ResponseWr
 	}
 	p.logger.Info("using account", "account", accountName, "model", req.Model)
 
-	body, err := json.Marshal(req)
+	// Build inner payload (messages array)
+	innerPayload := buildRawChatMessages(req.Messages)
+	innerBytes, err := json.Marshal(innerPayload)
 	if err != nil {
-		return fmt.Errorf("failed to marshal request: %w", err)
+		return fmt.Errorf("failed to marshal inner payload: %w", err)
 	}
+
+	// Encrypt inner payload
+	encrypted, err := encoding.EncryptMessage(innerBytes)
+	if err != nil {
+		return fmt.Errorf("failed to encrypt payload: %w", err)
+	}
+
+	// Build outer envelope: V1 format
+	envelope := map[string]any{
+		"model_name": req.Model,
+		"message":    encrypted.Message,
+	}
+	body, err := json.Marshal(envelope)
+	if err != nil {
+		return fmt.Errorf("failed to marshal envelope: %w", err)
+	}
+
+	sessionID := strings.ReplaceAll(uuid.New().String(), "-", "")[:24]
 
 	endpoint := config.AgentDomain + config.EndpointChatCompletion
 	httpReq, err := http.NewRequest("POST", endpoint, bytes.NewReader(body))
@@ -75,6 +98,11 @@ func (p *TraeProxy) ChatCompletion(req *ChatCompletionRequest, w http.ResponseWr
 	}
 
 	p.setHeaders(httpReq, token)
+	httpReq.Header.Set("X-Ide-Session-Id", sessionID)
+	httpReq.Header.Set("X-Request-Pin", encrypted.RequestPin)
+	httpReq.Header.Set("X-Requested-At", strconv.FormatInt(encrypted.RequestAt, 10))
+	httpReq.Header.Set("Accept", "text/event-stream")
+	httpReq.Header.Set("Cache-Control", "no-cache")
 
 	resp, err := p.client.Do(httpReq)
 	if err != nil {
@@ -102,7 +130,7 @@ func (p *TraeProxy) FetchModels() (json.RawMessage, error) {
 	}
 
 	endpoint := config.AgentDomain + config.EndpointModelList
-	httpReq, err := http.NewRequest("POST", endpoint, bytes.NewReader([]byte("{}")))
+	httpReq, err := http.NewRequest("GET", endpoint, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -119,13 +147,27 @@ func (p *TraeProxy) FetchModels() (json.RawMessage, error) {
 
 func (p *TraeProxy) setHeaders(req *http.Request, token string) {
 	req.Header.Set("Content-Type", "application/json")
-	req.Header.Set(config.HeaderIDEToken, token)
-	req.Header.Set("X-Request-ID", uuid.New().String())
-	req.Header.Set("X-Trae-Request-ID", uuid.New().String())
+	req.Header.Set("Authorization", config.AuthHeaderFormat+" "+token)
 
 	for k, v := range p.device.Headers() {
 		req.Header.Set(k, v)
 	}
+}
+
+func buildRawChatMessages(messages []Message) []map[string]any {
+	result := make([]map[string]any, 0, len(messages))
+	for _, msg := range messages {
+		result = append(result, map[string]any{
+			"role": msg.Role,
+			"content": []map[string]string{
+				{
+					"type": "text",
+					"text": msg.Content,
+				},
+			},
+		})
+	}
+	return result
 }
 
 func (p *TraeProxy) streamResponse(body io.Reader, w http.ResponseWriter, model string) error {

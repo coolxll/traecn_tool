@@ -21,12 +21,30 @@ type DeviceInfo struct {
 	DeviceType  string
 }
 
-// NewDeviceInfo generates device information
-func NewDeviceInfo() *DeviceInfo {
+// NewDeviceInfo generates device information from config, or auto-generates and persists
+func NewDeviceInfo(cfg *config.Config, configPath string) *DeviceInfo {
 	hostname, _ := os.Hostname()
+
+	deviceID := cfg.DeviceID
+	machineID := cfg.MachineID
+
+	if deviceID == "" {
+		deviceID = generateDeviceID()
+		cfg.DeviceID = deviceID
+	}
+	if machineID == "" {
+		machineID = generateMachineID(hostname)
+		cfg.MachineID = machineID
+	}
+
+	// Persist generated values back to config
+	if cfg.DeviceID != "" && cfg.MachineID != "" && configPath != "" {
+		config.SaveConfig(cfg, configPath)
+	}
+
 	return &DeviceInfo{
-		DeviceID:    generateDeviceID(),
-		MachineID:   generateMachineID(hostname),
+		DeviceID:    deviceID,
+		MachineID:   machineID,
 		DeviceBrand: hostname,
 		DeviceCPU:   detectCPU(),
 		OSVersion:   detectOS(),
@@ -40,7 +58,7 @@ func (d *DeviceInfo) Headers() map[string]string {
 		"x-app-id":             config.AppID,
 		"x-app-version":        "default",
 		"x-ide-version-code":   config.IDEVersionCode,
-		"x-app-version-code":   config.IDEVersionCode,
+		"x-app-version-code":   config.AppVersionCode,
 		"x-device-brand":       d.DeviceBrand,
 		"x-device-cpu":         d.DeviceCPU,
 		"x-device-id":          d.DeviceID,
@@ -50,6 +68,8 @@ func (d *DeviceInfo) Headers() map[string]string {
 		"x-ide-version":        config.IDEVersion,
 		"x-ide-version-type":   config.IDEVersionType,
 		"request-traffic-type": config.TrafficType,
+		"get-svc":              "1",
+		"User-Agent":           "TraeClient/TTNet",
 	}
 }
 

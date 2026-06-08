@@ -89,7 +89,7 @@ func main() {
 	}
 
 	// Start proxy
-	traeProxy := proxy.NewTraeProxy(tp, logger)
+	traeProxy := proxy.NewTraeProxy(tp, cfg, *configPath, logger)
 	server := openai.NewServer(traeProxy, logger)
 
 	logger.Info("====================================")

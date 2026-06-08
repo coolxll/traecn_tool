@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"runtime"
 	"sync"
 	"time"
 )
@@ -177,8 +178,17 @@ func LoadTokenFromStorage(storagePath string) (*TraeAuth, error) {
 	return &auth, nil
 }
 
-// DefaultStoragePath returns the default Trae CN storage.json path
+// DefaultStoragePath returns the default Trae CN storage.json path for different OS
 func DefaultStoragePath() string {
-	appData := os.Getenv("APPDATA")
-	return filepath.Join(appData, "Trae CN", "User", "globalStorage", "storage.json")
+	home, _ := os.UserHomeDir()
+	switch runtime.GOOS {
+	case "windows":
+		return filepath.Join(os.Getenv("APPDATA"), "Trae CN", "User", "globalStorage", "storage.json")
+	case "darwin":
+		return filepath.Join(home, "Library", "Application Support", "Trae CN", "User", "globalStorage", "storage.json")
+	case "linux":
+		return filepath.Join(home, ".config", "Trae CN", "User", "globalStorage", "storage.json")
+	default:
+		return ""
+	}
 }
