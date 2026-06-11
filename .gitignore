@@ -28,3 +28,8 @@ desktop.ini
 # Temp
 *.log
 *.tmp
+
+# Test/debug files
+config.test.json
+trae_request/
+.DS_Store
